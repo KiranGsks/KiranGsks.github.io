@@ -26,8 +26,7 @@ body{
 .brand{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.125rem}
 .nav a{color:var(--muted);margin-left:1rem;text-decoration:none}
 
-/* Site logo used in header */
-.site-logo{width:46px;height:46px;object-fit:contain;border-radius:8px;display:inline-block}
+/* Site logo removed from page; favicon remains for browser tab */
 
 .hero{padding:2.25rem 0}
 .hero-inner{display:flex;flex-direction:column;gap:1.25rem;flex:1}

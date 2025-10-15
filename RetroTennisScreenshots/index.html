@@ -6,33 +6,217 @@
   <title>RetroTennis Screenshots</title>
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;max-width:1100px;margin:24px auto;padding:0 16px}
-    h1{font-size:1.4rem;margin-bottom:8px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-    .card{border:1px solid #e3e3e3;padding:8px;border-radius:6px;background:#fff}
-    .card a{display:block;text-decoration:none;color:inherit}
-    .thumb{width:100%;height:160px;object-fit:cover;border-radius:4px}
-    .filename{font-size:0.85rem;margin-top:6px;word-break:break-all}
-    .note{font-size:0.9rem;color:#555;margin-bottom:14px}
-    @media (max-width:420px){.thumb{height:120px}}
+  <style>
+    :root{--bg:#0f1720;--card:#0b1220;--muted:#9aa4b2;--accent:#7dd3fc}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;background:linear-gradient(180deg,#061021 0%,#071428 100%);color:#e6eef8;max-width:1200px;margin-inline:auto;padding:28px}
+    header{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+    h1{font-size:1.25rem;margin:0;font-weight:600}
+    .note{font-size:0.95rem;color:var(--muted);margin-top:6px}
+
+    /* Grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px;box-shadow:0 6px 20px rgba(2,6,23,0.6);overflow:hidden}
+    .card button{all:unset;cursor:pointer;display:block;width:100%;text-align:left}
+    .thumb{width:100%;height:140px;object-fit:cover;border-radius:6px;display:block}
+    .filename{font-size:0.82rem;margin-top:8px;color:var(--muted);word-break:break-word}
+
+    /* Modal / Carousel */
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.85);display:flex;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(6px);visibility:hidden;opacity:0;transition:opacity .18s ease,visibility .18s}
+    .modal.open{visibility:visible;opacity:1}
+    .viewer{position:relative;max-width:94vw;max-height:92vh;background:transparent;display:flex;align-items:center;justify-content:center}
+    .stage{overflow:hidden;touch-action:none;display:flex;align-items:center;justify-content:center}
+    .stage img{max-width:100%;max-height:100%;user-select:none;pointer-events:none;display:block}
+
+    .controls{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+    .nav-btn{pointer-events:auto;background:rgba(0,0,0,0.36);border-radius:999px;width:48px;height:48px;display:flex;align-items:center;justify-content:center;color:#fff;border:0;backdrop-filter:blur(4px);cursor:pointer}
+    .nav-btn:active{transform:scale(.98)}
+
+    .close{position:absolute;top:16px;right:18px;pointer-events:auto;background:transparent;border:0;color:var(--muted);font-size:22px;cursor:pointer}
+    .caption{position:absolute;left:18px;bottom:18px;color:var(--muted);font-size:0.9rem}
+
+    @media (max-width:520px){.thumb{height:120px}.nav-btn{width:42px;height:42px}}
   </style>
-</head>
-<body>
   <h1>RetroTennis — Screenshots</h1>
   <p class="note">Click any image to open the full-size file. These images are served from the project's screenshots folder.</p>
-  <div class="grid">
-    <div class="card"><a href="/RetroTennis%20screenshots/Screenshot_20251015_154347_retrotennis.png"><img class="thumb" src="/RetroTennis%20screenshots/Screenshot_20251015_154347_retrotennis.png" alt="Screenshot_20251015_154347"></a><div class="filename">Screenshot_20251015_154347_retrotennis.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/Screenshot_20251015_154404_retrotennis.png"><img class="thumb" src="/RetroTennis%20screenshots/Screenshot_20251015_154404_retrotennis.png" alt="Screenshot_20251015_154404"></a><div class="filename">Screenshot_20251015_154404_retrotennis.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/Screenshot_20251015_154417_retrotennis.png"><img class="thumb" src="/RetroTennis%20screenshots/Screenshot_20251015_154417_retrotennis.png" alt="Screenshot_20251015_154417"></a><div class="filename">Screenshot_20251015_154417_retrotennis.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/Screenshot_20251015_154454_retrotennis.png"><img class="thumb" src="/RetroTennis%20screenshots/Screenshot_20251015_154454_retrotennis.png" alt="Screenshot_20251015_154454"></a><div class="filename">Screenshot_20251015_154454_retrotennis.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/Screenshot_20251015_154509_retrotennis.png"><img class="thumb" src="/RetroTennis%20screenshots/Screenshot_20251015_154509_retrotennis.png" alt="Screenshot_20251015_154509"></a><div class="filename">Screenshot_20251015_154509_retrotennis.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/Screenshot_20251015_154533_retrotennis.png"><img class="thumb" src="/RetroTennis%20screenshots/Screenshot_20251015_154533_retrotennis.png" alt="Screenshot_20251015_154533"></a><div class="filename">Screenshot_20251015_154533_retrotennis.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/Screenshot_20251015_154544_retrotennis.png"><img class="thumb" src="/RetroTennis%20screenshots/Screenshot_20251015_154544_retrotennis.png" alt="Screenshot_20251015_154544"></a><div class="filename">Screenshot_20251015_154544_retrotennis.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/SS_1015_1537.png"><img class="thumb" src="/RetroTennis%20screenshots/SS_1015_1537.png" alt="SS_1015_1537"></a><div class="filename">SS_1015_1537.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/SS_1015_1538.png"><img class="thumb" src="/RetroTennis%20screenshots/SS_1015_1538.png" alt="SS_1015_1538"></a><div class="filename">SS_1015_1538.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/SS_1015_1539.png"><img class="thumb" src="/RetroTennis%20screenshots/SS_1015_1539.png" alt="SS_1015_1539"></a><div class="filename">SS_1015_1539.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/SS_1015_1540.png"><img class="thumb" src="/RetroTennis%20screenshots/SS_1015_1540.png" alt="SS_1015_1540"></a><div class="filename">SS_1015_1540.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/SS_1015_1541.png"><img class="thumb" src="/RetroTennis%20screenshots/SS_1015_1541.png" alt="SS_1015_1541"></a><div class="filename">SS_1015_1541.png</div></div>
-    <div class="card"><a href="/RetroTennis%20screenshots/SS_1015_1542.png"><img class="thumb" src="/RetroTennis%20screenshots/SS_1015_1542.png" alt="SS_1015_1542"></a><div class="filename">SS_1015_1542.png</div></div>
+  <header>
+    <h1>RetroTennis — Screenshots</h1>
+    <div style="flex:1"></div>
+    <div class="note">Click an image to open the viewer. Use mouse wheel to zoom and drag to pan. Keyboard: ← → navigate, Esc close.</div>
+  </header>
+
+  <div class="grid" id="gallery">
+    <div class="card"><button data-src="/RetroTennis%20screenshots/10 CompanionApp.png"><img class="thumb" src="/RetroTennis%20screenshots/10 CompanionApp.png" alt="10 CompanionApp"><div class="filename">10 CompanionApp.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/10 Monitisation_Scr.png"><img class="thumb" src="/RetroTennis%20screenshots/10 Monitisation_Scr.png" alt="10 Monitisation_Scr"><div class="filename">10 Monitisation_Scr.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/1 Home_Def.png"><img class="thumb" src="/RetroTennis%20screenshots/1 Home_Def.png" alt="1 Home_Def"><div class="filename">1 Home_Def.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/2 Home_ifPremium.png"><img class="thumb" src="/RetroTennis%20screenshots/2 Home_ifPremium.png" alt="2 Home_ifPremium"><div class="filename">2 Home_ifPremium.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/3 From_Settingsmenu.png"><img class="thumb" src="/RetroTennis%20screenshots/3 From_Settingsmenu.png" alt="3 From_Settingsmenu"><div class="filename">3 From_Settingsmenu.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/4 Arcade_Sub Menu.png"><img class="thumb" src="/RetroTennis%20screenshots/4 Arcade_Sub Menu.png" alt="4 Arcade_Sub Menu"><div class="filename">4 Arcade_Sub Menu.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/4 Retro_SubMenu.png"><img class="thumb" src="/RetroTennis%20screenshots/4 Retro_SubMenu.png" alt="4 Retro_SubMenu"><div class="filename">4 Retro_SubMenu.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/5 Hold_Calib.png"><img class="thumb" src="/RetroTennis%20screenshots/5 Hold_Calib.png" alt="5 Hold_Calib"><div class="filename">5 Hold_Calib.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/6 Pronation_Calib.png"><img class="thumb" src="/RetroTennis%20screenshots/6 Pronation_Calib.png" alt="6 Pronation_Calib"><div class="filename">6 Pronation_Calib.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/6 Up_Down_Calib.png"><img class="thumb" src="/RetroTennis%20screenshots/6 Up_Down_Calib.png" alt="6 Up_Down_Calib"><div class="filename">6 Up_Down_Calib.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/7 Blitz.png"><img class="thumb" src="/RetroTennis%20screenshots/7 Blitz.png" alt="7 Blitz"><div class="filename">7 Blitz.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/7 Power.png"><img class="thumb" src="/RetroTennis%20screenshots/7 Power.png" alt="7 Power"><div class="filename">7 Power.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/7 Retro.png"><img class="thumb" src="/RetroTennis%20screenshots/7 Retro.png" alt="7 Retro"><div class="filename">7 Retro.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/8 Smart_Pause_onmotion.png"><img class="thumb" src="/RetroTennis%20screenshots/8 Smart_Pause_onmotion.png" alt="8 Smart_Pause_onmotion"><div class="filename">8 Smart_Pause_onmotion.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/9 GameOver.png"><img class="thumb" src="/RetroTennis%20screenshots/9 GameOver.png" alt="9 GameOver"><div class="filename">9 GameOver.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/LeaderBoard_Stub.png"><img class="thumb" src="/RetroTennis%20screenshots/LeaderBoard_Stub.png" alt="LeaderBoard_Stub"><div class="filename">LeaderBoard_Stub.png</div></button></div>
+    <div class="card"><button data-src="/RetroTennis%20screenshots/index.html"><img class="thumb" src="/RetroTennis%20screenshots/index.html" alt="index.html"><div class="filename">index.html</div></button></div>
   </div>
-</body>
-</html>
+
+  <!-- Modal viewer -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="viewer" role="dialog" aria-modal="true">
+      <button class="close" id="closeBtn" aria-label="Close">✕</button>
+      <div class="stage" id="stage" style="width:88vw;height:78vh">
+        <img id="stageImg" src="" alt="">
+      </div>
+      <div class="controls">
+        <div style="padding-left:12px"></div>
+        <div style="padding-right:12px;display:flex;gap:8px;align-items:center">
+          <button id="prevBtn" class="nav-btn" aria-label="Previous">◀</button>
+          <button id="nextBtn" class="nav-btn" aria-label="Next">▶</button>
+        </div>
+      </div>
+      <div class="caption" id="caption"></div>
+    </div>
+  </div>
+
+  <script>
+    // Utilities
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const gallery = $('#gallery');
+      let items = $$('.card', gallery).map(card => card);
+
+      // Sort alphabetically by filename text (case-insensitive)
+      items.sort((a,b)=>{
+        const aText = (a.querySelector('.filename')?.textContent||'').toLowerCase();
+        const bText = (b.querySelector('.filename')?.textContent||'').toLowerCase();
+        return aText.localeCompare(bText);
+      });
+      // Re-append in sorted order
+      items.forEach(n => gallery.appendChild(n));
+
+      const buttons = $$('button[data-src]', gallery);
+      const sources = buttons.map(b => b.dataset.src);
+
+      // Modal elements
+      const modal = $('#modal');
+      const stage = $('#stage');
+      const img = $('#stageImg');
+      const caption = $('#caption');
+      const prevBtn = $('#prevBtn');
+      const nextBtn = $('#nextBtn');
+      const closeBtn = $('#closeBtn');
+
+      let state = {
+        index: 0,
+        scale: 1,
+        tx: 0,
+        ty: 0,
+        dragging: false,
+        lastX: 0,
+        lastY: 0
+      };
+
+      function openAt(i){
+        state.index = (i + sources.length) % sources.length;
+        loadCurrent(true);
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+        resetTransform();
+      }
+
+      function loadCurrent(prefetch=false){
+        const src = sources[state.index];
+        img.src = src;
+        caption.textContent = src.split('/').pop();
+        resetTransform();
+        if(prefetch){
+          // prefetch neighbors
+          const next = new Image(); next.src = sources[(state.index+1)%sources.length];
+          const prev = new Image(); prev.src = sources[(state.index-1+sources.length)%sources.length];
+        }
+      }
+
+      function resetTransform(){
+        state.scale = 1; state.tx = 0; state.ty = 0; applyTransform();
+      }
+
+      function applyTransform(){
+        img.style.transform = `translate(${state.tx}px, ${state.ty}px) scale(${state.scale})`;
+      }
+
+      // Button wiring
+      buttons.forEach((btn, i)=> btn.addEventListener('click', ()=> openAt(i)));
+      prevBtn.addEventListener('click', ()=>{ state.index = (state.index-1+sources.length)%sources.length; loadCurrent(true); });
+      nextBtn.addEventListener('click', ()=>{ state.index = (state.index+1)%sources.length; loadCurrent(true); });
+      closeBtn.addEventListener('click', closeModal);
+
+      // Click background to close (but not clicks on image area)
+      modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+
+      // Keyboard
+      window.addEventListener('keydown', (e)=>{
+        if(!modal.classList.contains('open')) return;
+        if(e.key === 'Escape') closeModal();
+        if(e.key === 'ArrowLeft'){ prevBtn.click(); }
+        if(e.key === 'ArrowRight'){ nextBtn.click(); }
+      });
+
+      // Pointer drag for pan
+      stage.addEventListener('pointerdown', (e)=>{
+        stage.setPointerCapture(e.pointerId);
+        state.dragging = true; state.lastX = e.clientX; state.lastY = e.clientY;
+        stage.style.cursor = 'grabbing';
+      });
+      stage.addEventListener('pointermove', (e)=>{
+        if(!state.dragging) return;
+        const dx = e.clientX - state.lastX;
+        const dy = e.clientY - state.lastY;
+        state.lastX = e.clientX; state.lastY = e.clientY;
+        // only pan when zoomed-in
+        if(state.scale > 1){ state.tx += dx; state.ty += dy; applyTransform(); }
+      });
+      stage.addEventListener('pointerup', (e)=>{ state.dragging = false; stage.style.cursor = 'default'; stage.releasePointerCapture?.(e.pointerId); });
+      stage.addEventListener('pointercancel', ()=>{ state.dragging = false; stage.style.cursor = 'default'; });
+
+      // Wheel zoom
+      stage.addEventListener('wheel', (e)=>{
+        if(!modal.classList.contains('open')) return;
+        e.preventDefault();
+        const delta = -e.deltaY || e.wheelDelta;
+        const zoomFactor = Math.exp(delta * 0.001); // smooth
+        const newScale = Math.min(4, Math.max(0.5, state.scale * zoomFactor));
+        // Adjust translate so the image keeps position under cursor (approx)
+        const rect = img.getBoundingClientRect();
+        const cx = e.clientX - rect.left; const cy = e.clientY - rect.top;
+        const relX = (cx - state.tx) / state.scale; const relY = (cy - state.ty) / state.scale;
+        state.scale = newScale;
+        state.tx = cx - relX * state.scale;
+        state.ty = cy - relY * state.scale;
+        applyTransform();
+      }, {passive:false});
+
+      // Double click to toggle zoom reset
+      stage.addEventListener('dblclick', ()=>{
+        if(state.scale === 1) state.scale = 2.2; else resetTransform();
+        applyTransform();
+      });
+
+      // Small accessibility: focus trapping and focus initial
+      // Ensure modal buttons are focusable
+      ['prevBtn','nextBtn','closeBtn'].forEach(id=>{ const el = $('#'+id); if(el) el.tabIndex = 0; });
+    });
+  </script>

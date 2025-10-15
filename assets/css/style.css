@@ -22,6 +22,9 @@ body{
 .brand{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.125rem}
 .nav a{color:var(--muted);margin-left:1rem;text-decoration:none}
 
+/* Site logo used in header */
+.site-logo{width:46px;height:46px;object-fit:contain;border-radius:8px;display:inline-block}
+
 .hero{padding:4rem 0 6rem}
 .hero-inner{display:flex;flex-direction:column;gap:1.25rem}
 .lede{color:var(--muted);max-width:60ch}

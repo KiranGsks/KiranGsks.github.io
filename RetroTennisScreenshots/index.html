@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>RetroTennis Screenshots</title>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;max-width:1100px;margin:24px auto;padding:0 16px}
-  <style>
     :root{--bg:#0f1720;--card:#0b1220;--muted:#9aa4b2;--accent:#7dd3fc}
     html,body{height:100%}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;background:linear-gradient(180deg,#061021 0%,#071428 100%);color:#e6eef8;max-width:1200px;margin-inline:auto;padding:28px}
@@ -15,7 +13,7 @@
     .note{font-size:0.95rem;color:var(--muted);margin-top:6px}
 
     /* Grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:22px}
     .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px;box-shadow:0 6px 20px rgba(2,6,23,0.6);overflow:hidden}
     .card button{all:unset;cursor:pointer;display:block;width:100%;text-align:left}
     .thumb{width:100%;height:140px;object-fit:cover;border-radius:6px;display:block}
@@ -35,10 +33,9 @@
     .close{position:absolute;top:16px;right:18px;pointer-events:auto;background:transparent;border:0;color:var(--muted);font-size:22px;cursor:pointer}
     .caption{position:absolute;left:18px;bottom:18px;color:var(--muted);font-size:0.9rem}
 
+    .thumb{height:150px}
     @media (max-width:520px){.thumb{height:120px}.nav-btn{width:42px;height:42px}}
   </style>
-  <h1>RetroTennis - Screenshots</h1>
-  <p class="note">Click any image to open the full-size file.</p>
   <header>
     <h1>RetroTennis - Screenshots</h1>
     <div style="flex:1"></div>
@@ -46,23 +43,23 @@
   </header>
 
   <div class="grid" id="gallery">
-    <div class="card"><button data-src="/RetroTennisScreenshots/10 CompanionApp.png"><img class="thumb" src="/RetroTennis%20screenshots/10 CompanionApp.png" alt="10 CompanionApp"><div class="filename">10 CompanionApp.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/10 Monitisation_Scr.png"><img class="thumb" src="/RetroTennis%20screenshots/10 Monitisation_Scr.png" alt="10 Monitisation_Scr"><div class="filename">10 Monitisation_Scr.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/1 Home_Def.png"><img class="thumb" src="/RetroTennis%20screenshots/1 Home_Def.png" alt="1 Home_Def"><div class="filename">1 Home_Def.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/2 Home_ifPremium.png"><img class="thumb" src="/RetroTennis%20screenshots/2 Home_ifPremium.png" alt="2 Home_ifPremium"><div class="filename">2 Home_ifPremium.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/3 From_Settingsmenu.png"><img class="thumb" src="/RetroTennis%20screenshots/3 From_Settingsmenu.png" alt="3 From_Settingsmenu"><div class="filename">3 From_Settingsmenu.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/4 Arcade_Sub Menu.png"><img class="thumb" src="/RetroTennis%20screenshots/4 Arcade_Sub Menu.png" alt="4 Arcade_Sub Menu"><div class="filename">4 Arcade_Sub Menu.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/4 Retro_SubMenu.png"><img class="thumb" src="/RetroTennis%20screenshots/4 Retro_SubMenu.png" alt="4 Retro_SubMenu"><div class="filename">4 Retro_SubMenu.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/5 Hold_Calib.png"><img class="thumb" src="/RetroTennis%20screenshots/5 Hold_Calib.png" alt="5 Hold_Calib"><div class="filename">5 Hold_Calib.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/6 Pronation_Calib.png"><img class="thumb" src="/RetroTennis%20screenshots/6 Pronation_Calib.png" alt="6 Pronation_Calib"><div class="filename">6 Pronation_Calib.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/6 Up_Down_Calib.png"><img class="thumb" src="/RetroTennis%20screenshots/6 Up_Down_Calib.png" alt="6 Up_Down_Calib"><div class="filename">6 Up_Down_Calib.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/7 Blitz.png"><img class="thumb" src="/RetroTennis%20screenshots/7 Blitz.png" alt="7 Blitz"><div class="filename">7 Blitz.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/7 Power.png"><img class="thumb" src="/RetroTennis%20screenshots/7 Power.png" alt="7 Power"><div class="filename">7 Power.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/7 Retro.png"><img class="thumb" src="/RetroTennis%20screenshots/7 Retro.png" alt="7 Retro"><div class="filename">7 Retro.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/8 Smart_Pause_onmotion.png"><img class="thumb" src="/RetroTennis%20screenshots/8 Smart_Pause_onmotion.png" alt="8 Smart_Pause_onmotion"><div class="filename">8 Smart_Pause_onmotion.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/9 GameOver.png"><img class="thumb" src="/RetroTennis%20screenshots/9 GameOver.png" alt="9 GameOver"><div class="filename">9 GameOver.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/LeaderBoard_Stub.png"><img class="thumb" src="/RetroTennis%20screenshots/LeaderBoard_Stub.png" alt="LeaderBoard_Stub"><div class="filename">LeaderBoard_Stub.png</div></button></div>
-    <div class="card"><button data-src="/RetroTennisScreenshots/index.html"><img class="thumb" src="/RetroTennis%20screenshots/index.html" alt="index.html"><div class="filename">index.html</div></button></div>
+  <div class="card"><button data-src="./10 CompanionApp.png"><img class="thumb" src="./10 CompanionApp.png" alt="10 CompanionApp" loading="lazy" decoding="async"><div class="filename">10 CompanionApp.png</div></button></div>
+  <div class="card"><button data-src="./10 Monitisation_Scr.png"><img class="thumb" src="./10 Monitisation_Scr.png" alt="10 Monitisation_Scr" loading="lazy" decoding="async"><div class="filename">10 Monitisation_Scr.png</div></button></div>
+  <div class="card"><button data-src="./1 Home_Def.png"><img class="thumb" src="./1 Home_Def.png" alt="1 Home_Def" loading="lazy" decoding="async"><div class="filename">1 Home_Def.png</div></button></div>
+  <div class="card"><button data-src="./2 Home_ifPremium.png"><img class="thumb" src="./2 Home_ifPremium.png" alt="2 Home_ifPremium" loading="lazy" decoding="async"><div class="filename">2 Home_ifPremium.png</div></button></div>
+  <div class="card"><button data-src="./3 From_Settingsmenu.png"><img class="thumb" src="./3 From_Settingsmenu.png" alt="3 From_Settingsmenu" loading="lazy" decoding="async"><div class="filename">3 From_Settingsmenu.png</div></button></div>
+  <div class="card"><button data-src="./4 Arcade_Sub Menu.png"><img class="thumb" src="./4 Arcade_Sub Menu.png" alt="4 Arcade_Sub Menu" loading="lazy" decoding="async"><div class="filename">4 Arcade_Sub Menu.png</div></button></div>
+  <div class="card"><button data-src="./4 Retro_SubMenu.png"><img class="thumb" src="./4 Retro_SubMenu.png" alt="4 Retro_SubMenu" loading="lazy" decoding="async"><div class="filename">4 Retro_SubMenu.png</div></button></div>
+  <div class="card"><button data-src="./5 Hold_Calib.png"><img class="thumb" src="./5 Hold_Calib.png" alt="5 Hold_Calib" loading="lazy" decoding="async"><div class="filename">5 Hold_Calib.png</div></button></div>
+  <div class="card"><button data-src="./6 Pronation_Calib.png"><img class="thumb" src="./6 Pronation_Calib.png" alt="6 Pronation_Calib" loading="lazy" decoding="async"><div class="filename">6 Pronation_Calib.png</div></button></div>
+  <div class="card"><button data-src="./6 Up_Down_Calib.png"><img class="thumb" src="./6 Up_Down_Calib.png" alt="6 Up_Down_Calib" loading="lazy" decoding="async"><div class="filename">6 Up_Down_Calib.png</div></button></div>
+  <div class="card"><button data-src="./7 Blitz.png"><img class="thumb" src="./7 Blitz.png" alt="7 Blitz" loading="lazy" decoding="async"><div class="filename">7 Blitz.png</div></button></div>
+  <div class="card"><button data-src="./7 Power.png"><img class="thumb" src="./7 Power.png" alt="7 Power" loading="lazy" decoding="async"><div class="filename">7 Power.png</div></button></div>
+  <div class="card"><button data-src="./7 Retro.png"><img class="thumb" src="./7 Retro.png" alt="7 Retro" loading="lazy" decoding="async"><div class="filename">7 Retro.png</div></button></div>
+  <div class="card"><button data-src="./8 Smart_Pause_onmotion.png"><img class="thumb" src="./8 Smart_Pause_onmotion.png" alt="8 Smart_Pause_onmotion" loading="lazy" decoding="async"><div class="filename">8 Smart_Pause_onmotion.png</div></button></div>
+  <div class="card"><button data-src="./9 GameOver.png"><img class="thumb" src="./9 GameOver.png" alt="9 GameOver" loading="lazy" decoding="async"><div class="filename">9 GameOver.png</div></button></div>
+  <div class="card"><button data-src="./LeaderBoard_Stub.png"><img class="thumb" src="./LeaderBoard_Stub.png" alt="LeaderBoard_Stub" loading="lazy" decoding="async"><div class="filename">LeaderBoard_Stub.png</div></button></div>
+  <div class="card"><button data-src="./pronation.gif"><img class="thumb" src="./pronation.gif" alt="pronation" loading="lazy" decoding="async"><div class="filename">pronation.gif</div></button></div>
   </div>
 
   <!-- Modal viewer -->

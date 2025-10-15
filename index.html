@@ -6,7 +6,7 @@
   <title>KiranGsks — Home</title>
   <meta name="description" content="Placeholder landing page for KiranGsks.github.io — links to projects and site sections">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="assets/images/retro_logo.png">
+  <link rel="icon" href="assets/images/retro_logo.png" type="image/png" sizes="48x48">
 </head>
 <body>
   <header class="site-header">
@@ -22,7 +22,6 @@
   <main class="hero">
     <div class="container hero-inner">
       <h1>Welcome</h1>
-      <p class="lede">A minimal, modern landing page linking to the site's projects while the full site is being prepared.</p>
 
       <section class="card">
         <h2>About Roko (short)</h2>
@@ -37,6 +36,29 @@
       <section class="links">
         <a class="btn" href="RetroTennisScreenshots/">Explore Retro Tennis Screenshots</a>
         <a class="btn ghost" href="privacypolicy/">Read Privacy Policy</a>
+      </section>
+
+      <section class="card">
+        <h2>RetroTennis — Event links</h2>
+        <p class="muted">Shortcuts for attendees: screenshots, a short video, and the Play Store testing link.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:0.75rem">
+          <a class="btn" href="RetroTennisScreenshots/">Screenshots</a>
+          <a class="btn" href="https://youtube.com/shorts/0XOS0x1Ekic" target="_blank" rel="noopener">Watch Short</a>
+          <a class="btn ghost" href="https://play.google.com/apps/testing/vtz.rama.retrotennis" target="_blank" rel="noopener">Play Store (Testing)</a>
+          <button id="installGuideBtn" class="btn ghost" aria-expanded="false">How to install (Closed testing)</button>
+        </div>
+
+        <details id="installDetails" style="margin-top:0.9rem;border-top:1px dashed rgba(255,255,255,0.04);padding-top:0.75rem">
+          <summary style="cursor:pointer">Closed testing installation walkthrough</summary>
+          <ol style="margin-top:0.5rem">
+            <li>Open the Play Store testing link provided above.</li>
+            <li>Sign in with the Google account you want to use on the device.</li>
+            <li>Join the tester group (there may be a Join / Opt-in button).</li>
+            <li>On the target Android device, open Play Store and go to the app's listing. You should see an option to install the test build.</li>
+            <li>If you don't see it immediately, try opening the link on the device or clearing the Play Store cache and retrying.</li>
+          </ol>
+          <p class="muted" style="margin-top:0.5rem">If you have trouble, contact us at <a href="mailto:gskskiran@gmail.com">gskskiran@gmail.com</a>.</p>
+        </details>
       </section>
 
       <section class="notice">

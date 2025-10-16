@@ -1,106 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Retro Tennis</title>
     <link rel="icon" href="/assets/images/logo.png" type="image/png" sizes="48x48">
     <style>
+        /* Theme variables - dark mode (default) */
+        :root {
+            --bg: #061021;
+            --bg-gradient-start: #061021;
+            --bg-gradient-end: #071428;
+            --text: #e6eef8;
+            --text-muted: #9aa4b2;
+            --heading: #e6eef8;
+            --accent: #7dd3fc;
+            --border: rgba(255, 255, 255, 0.04);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --contact-bg: rgba(255, 255, 255, 0.04);
+            --link: #7dd3fc;
+        }
+
+        /* Light mode */
+        html[data-theme="light"] {
+            --bg: #f5f8fb;
+            --bg-gradient-start: #f5f8fb;
+            --bg-gradient-end: #e8ecf1;
+            --text: #1a202c;
+            --text-muted: #64748b;
+            --heading: #2c3e50;
+            --accent: #3498db;
+            --border: rgba(0, 0, 0, 0.08);
+            --card-bg: #ffffff;
+            --contact-bg: #ecf0f1;
+            --link: #3498db;
+        }
+
+        /* System preference detection when no explicit theme set */
+        @media (prefers-color-scheme: light) {
+            html:not([data-theme]) {
+                --bg: #f5f8fb;
+                --bg-gradient-start: #f5f8fb;
+                --bg-gradient-end: #e8ecf1;
+                --text: #1a202c;
+                --text-muted: #64748b;
+                --heading: #2c3e50;
+                --accent: #3498db;
+                --border: rgba(0, 0, 0, 0.08);
+                --card-bg: #ffffff;
+                --contact-bg: #ecf0f1;
+                --link: #3498db;
+            }
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            color: #333;
+            color: var(--text);
+            background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
         }
+
         h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
+            color: var(--heading);
+            border-bottom: 3px solid var(--accent);
             padding-bottom: 10px;
             font-size: 1.75rem;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
+
         h2 {
-            color: #34495e;
+            color: var(--heading);
             margin-top: 30px;
             font-size: 1.35rem;
+            transition: color 0.3s ease;
         }
+
         .last-updated {
-            color: #7f8c8d;
+            color: var(--text-muted);
             font-style: italic;
         }
+
         .section {
             margin: 20px 0;
         }
+
         ul {
             margin: 10px 0;
             padding-left: 1.5rem;
         }
+
         ol {
             padding-left: 1.5rem;
         }
+
         li {
             margin: 5px 0;
         }
+
         .contact {
-            background-color: #ecf0f1;
+            background-color: var(--contact-bg);
             padding: 15px;
             border-radius: 5px;
             margin-top: 30px;
+            border: 1px solid var(--border);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
+
         a {
-            color: #3498db;
+            color: var(--link);
             word-break: break-word;
+            transition: color 0.3s ease;
         }
-        
+
+        /* Theme toggle button */
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: inherit;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--contact-bg);
+        }
+
+        .theme-toggle .icon {
+            width: 18px;
+            height: 18px;
+            display: none;
+        }
+
+        .theme-toggle[data-theme="system"] .icon-system {
+            display: block;
+        }
+
+        .theme-toggle[data-theme="dark"] .icon-dark {
+            display: block;
+        }
+
+        .theme-toggle[data-theme="light"] .icon-light {
+            display: block;
+        }
+
+        .theme-toggle span {
+            font-size: 0.9rem;
+        }
+
         /* Mobile optimizations */
         @media (max-width: 640px) {
             body {
                 padding: 15px;
                 font-size: 0.95rem;
             }
+
             h1 {
                 font-size: 1.5rem;
             }
+
             h2 {
                 font-size: 1.2rem;
                 margin-top: 20px;
             }
+
             .contact {
                 padding: 12px;
             }
-            ul, ol {
+
+            ul,
+            ol {
                 padding-left: 1.25rem;
             }
+
+            .theme-toggle {
+                padding: 6px 10px;
+                font-size: 0.85rem;
+            }
+
+            .theme-toggle .icon {
+                width: 16px;
+                height: 16px;
+            }
+
+            .theme-toggle span {
+                font-size: 0.85rem;
+            }
         }
+
+        ̰
     </style>
 </head>
+
 <body>
-                <header style="display:flex;align-items:center;gap:12px;">
-                        <h1 style="flex:1;margin:0">Privacy Policy</h1>
-                        <!-- Theme toggle is provided by /assets/js/theme.js. This placeholder
-                             allows the shared implementation (canonical markup from home.html)
-                             to be injected so all pages reuse the same UI and behaviour. -->
-                        <div id="themeToggleContainer" data-theme-toggle-container aria-hidden="true"></div>
-                </header>
+    <header style="display:flex;align-items:center;gap:12px;">
+        <h1 style="flex:1;margin:0">Privacy Policy</h1>
+        <!-- Theme toggle button -->
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+            <!-- System icon (desktop + phone / gear-like) -->
+            <svg class="icon icon-system" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path d="M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <rect x="7" y="8" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg> 
+
+            <!-- Dark mode (moon) -->
+            <svg class="icon icon-dark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+
+            <!-- Light mode (sun) -->
+            <svg class="icon icon-light" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" />
+                <path
+                    d="M12 2v1.5M12 20.5V22M4.2 4.2l1.06 1.06M18.74 18.74l1.06 1.06M2 12h1.5M20.5 12H22M4.2 19.8l1.06-1.06M18.74 5.26l1.06-1.06"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+
+            <span>Theme</span>
+        </button>
+    </header>
     <p class="last-updated"><strong>Last Updated:</strong> October 14, 2025</p>
 
     <div class="section">
         <h2>1. Introduction</h2>
         <p>
-            This Privacy Policy describes how Retro Tennis ("we," "us," or "our") handles information 
+            This Privacy Policy describes how Retro Tennis ("we," "us," or "our") handles information
             in connection with our mobile game application available on Wear OS and Android devices.
         </p>
         <p>
-            <strong>Developer Contact:</strong> <a href="mailto:gsksudhakiran@protonmail.com">gsksudhakiran@protonmail.com</a>
+            <strong>Developer Contact:</strong> <a
+                href="mailto:gsksudhakiran@protonmail.com">gsksudhakiran@protonmail.com</a>
         </p>
     </div>
 
     <div class="section">
         <h2>2. Information We Do NOT Collect</h2>
         <p>
-            Retro Tennis is designed with privacy in mind. <strong>We do not collect, store, or process 
-            any personal data or user information.</strong> Specifically:
+            Retro Tennis is designed with privacy in mind. <strong>We do not collect, store, or process
+                any personal data or user information.</strong> Specifically:
         </p>
         <ul>
             <li>We do not collect your name, email address, or contact information</li>
@@ -123,7 +279,7 @@
             <li><strong>Premium Status:</strong> Information about in-app purchases</li>
         </ul>
         <p>
-            This data is stored exclusively on your device and is never transmitted to our servers or any 
+            This data is stored exclusively on your device and is never transmitted to our servers or any
             third parties. You can delete this data at any time by uninstalling the application.
         </p>
     </div>
@@ -131,7 +287,7 @@
     <div class="section">
         <h2>4. Advertising</h2>
         <p>
-            The companion app (Android mobile version) displays advertisements to provide users with the 
+            The companion app (Android mobile version) displays advertisements to provide users with the
             option to earn in-game credits. These ads are served by Google AdMob.
         </p>
         <p>
@@ -144,8 +300,9 @@
             <li>You can opt out of personalized advertising through your device settings</li>
         </ul>
         <p>
-            Please refer to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> 
-            and <a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob's Privacy Information</a> 
+            Please refer to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>
+            and <a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob's Privacy
+                Information</a>
             for details on how Google handles data collected through advertising.
         </p>
     </div>
@@ -153,7 +310,7 @@
     <div class="section">
         <h2>5. In-App Purchases</h2>
         <p>
-            Retro Tennis offers a premium upgrade through Google Play's in-app billing system. When you make 
+            Retro Tennis offers a premium upgrade through Google Play's in-app billing system. When you make
             a purchase:
         </p>
         <ul>
@@ -163,7 +320,9 @@
             <li>Google Play's privacy policy and terms apply to all purchases</li>
         </ul>
         <p>
-            Please refer to <a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&ldt=privacynotice" target="_blank">Google Payments Privacy Notice</a> 
+            Please refer to <a
+                href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&ldt=privacynotice"
+                target="_blank">Google Payments Privacy Notice</a>
             for information about how Google processes payment data.
         </p>
     </div>
@@ -181,7 +340,7 @@
             <li><strong>Wearable Communication:</strong> To sync game credits between watch and phone</li>
         </ul>
         <p>
-            These permissions are used exclusively for the stated purposes and do not enable us to collect 
+            These permissions are used exclusively for the stated purposes and do not enable us to collect
             personal information.
         </p>
     </div>
@@ -201,18 +360,19 @@
         </p>
         <ul>
             <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
-            <li><a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob Privacy Information</a></li>
+            <li><a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob Privacy Information</a>
+            </li>
         </ul>
     </div>
 
     <div class="section">
         <h2>8. Children's Privacy</h2>
         <p>
-            Retro Tennis is suitable for users of all ages. Since we do not collect any personal information, 
+            Retro Tennis is suitable for users of all ages. Since we do not collect any personal information,
             there is no special data handling for children under 13 (COPPA) or under 16 (GDPR).
         </p>
         <p>
-            However, the companion app displays advertisements through Google AdMob. Parents and guardians 
+            However, the companion app displays advertisements through Google AdMob. Parents and guardians
             should be aware that AdMob may collect certain information as described in section 4 above.
         </p>
         <p>
@@ -237,7 +397,7 @@
             <li>No transmission of personal data over networks</li>
         </ul>
         <p>
-            Since we do not collect or store personal data on external servers, there is minimal risk of 
+            Since we do not collect or store personal data on external servers, there is minimal risk of
             data breaches involving your personal information.
         </p>
     </div>
@@ -245,28 +405,28 @@
     <div class="section">
         <h2>10. Your Rights</h2>
         <p>
-            Since we do not collect personal data, most data protection rights (such as data access, 
+            Since we do not collect personal data, most data protection rights (such as data access,
             correction, or deletion requests) are not applicable. However:
         </p>
         <ul>
-            <li><strong>Local Data Deletion:</strong> You can delete all locally stored game data by 
-            clearing the app's data in your device settings or uninstalling the app</li>
-            <li><strong>Ad Personalization:</strong> You can control ad personalization through your 
-            device's advertising settings</li>
-            <li><strong>Purchase Information:</strong> Contact Google Play support for any questions 
-            about purchase records</li>
+            <li><strong>Local Data Deletion:</strong> You can delete all locally stored game data by
+                clearing the app's data in your device settings or uninstalling the app</li>
+            <li><strong>Ad Personalization:</strong> You can control ad personalization through your
+                device's advertising settings</li>
+            <li><strong>Purchase Information:</strong> Contact Google Play support for any questions
+                about purchase records</li>
         </ul>
     </div>
 
     <div class="section">
         <h2>11. International Users</h2>
         <p>
-            Retro Tennis is available globally through Google Play Store. Since we do not collect or 
-            transfer personal data, international data transfer regulations (such as GDPR or CCPA) 
+            Retro Tennis is available globally through Google Play Store. Since we do not collect or
+            transfer personal data, international data transfer regulations (such as GDPR or CCPA)
             have minimal applicability.
         </p>
         <p>
-            However, third-party services (Google Play, AdMob) may transfer data internationally as 
+            However, third-party services (Google Play, AdMob) may transfer data internationally as
             described in their respective privacy policies.
         </p>
     </div>
@@ -274,7 +434,7 @@
     <div class="section">
         <h2>12. Changes to This Privacy Policy</h2>
         <p>
-            We may update this Privacy Policy from time to time to reflect changes in our practices or 
+            We may update this Privacy Policy from time to time to reflect changes in our practices or
             for legal, operational, or regulatory reasons. When we make changes:
         </p>
         <ul>
@@ -305,12 +465,12 @@
             This app complies with:
         </p>
         <ul>
-            <li><strong>GDPR (EU General Data Protection Regulation):</strong> Minimal data collection 
-            approach eliminates most GDPR obligations</li>
-            <li><strong>COPPA (Children's Online Privacy Protection Act):</strong> No personal information 
-            collected from children</li>
-            <li><strong>CCPA (California Consumer Privacy Act):</strong> No sale or sharing of personal 
-            information</li>
+            <li><strong>GDPR (EU General Data Protection Regulation):</strong> Minimal data collection
+                approach eliminates most GDPR obligations</li>
+            <li><strong>COPPA (Children's Online Privacy Protection Act):</strong> No personal information
+                collected from children</li>
+            <li><strong>CCPA (California Consumer Privacy Act):</strong> No sale or sharing of personal
+                information</li>
             <li><strong>Google Play User Data Policy:</strong> Transparent disclosure of data practices</li>
         </ul>
     </div>
@@ -318,7 +478,7 @@
     <div class="contact">
         <h2>15. Contact Us</h2>
         <p>
-            If you have any questions, concerns, or requests regarding this Privacy Policy or our data 
+            If you have any questions, concerns, or requests regarding this Privacy Policy or our data
             practices, please contact us:
         </p>
         <p>
@@ -343,10 +503,10 @@
         </p>
         <ul>
             <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
-            <li><a href="https://support.google.com/googleplay/answer/9888076" target="_blank">Google Play 
-            Data Safety Section</a></li>
-            <li><a href="https://www.ftc.gov/tips-advice/business-center/privacy-and-security/children%27s-privacy" 
-            target="_blank">FTC COPPA Guidelines</a></li>
+            <li><a href="https://support.google.com/googleplay/answer/9888076" target="_blank">Google Play
+                    Data Safety Section</a></li>
+            <li><a href="https://www.ftc.gov/tips-advice/business-center/privacy-and-security/children%27s-privacy"
+                    target="_blank">FTC COPPA Guidelines</a></li>
             <li><a href="https://gdpr.eu" target="_blank">GDPR Information Portal</a></li>
         </ul>
     </div>
@@ -357,14 +517,14 @@
             You can view game screenshots and media assets in the project's gallery (hosted on GitHub Pages):
             <a href="/RetroTennisScreenshots/">https://kirangsks.github.io/RetroTennisScreenshots/</a>
         </p>
-        <p style="font-size:0.9rem;color:#555;">Note: The gallery uses files from the repository's `RetroTennis screenshots` folder. If you move or rename that folder, update the gallery accordingly.</p>
     </div>
 
-    <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid var(--border);">
 
-    <p style="text-align: center; color: #7f8c8d; font-size: 14px;">
+    <p style="text-align: center; color: var(--text-muted); font-size: 14px;">
         This privacy policy is effective as of October 14, 2025 and applies to all versions of Retro Tennis.
     </p>
 </body>
 <script src="/assets/js/theme.js"></script>
+
 </html>

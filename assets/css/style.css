@@ -2,7 +2,7 @@
   /* dark theme defaults (used when client prefers dark or no preference) */
   --bg-start: #061021;
   --bg-end: #06151f;
-  --card: #0b1220;
+  --card: #1a233265;
   --muted: #94a3b8;
   --accent: #7dd3fc;
   --text: #e6eef6;
@@ -27,7 +27,7 @@ body {
 body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 60%);
+  background: var(--bg-start);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -69,7 +69,7 @@ body {
 :root[data-theme="dark"] {
   --bg-start: #061021;
   --bg-end: #06151f;
-  --card: #0b1220;
+  --card: #1a233265;
   --muted: #94a3b8;
   --accent: #7dd3fc;
   --text: #e6eef6;
@@ -195,11 +195,11 @@ body {
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1.25rem;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6)
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4)
 }
 
 .card h2 {
@@ -257,9 +257,9 @@ details summary {
   margin-top: 0.75rem;
   padding: 0.75rem;
   border-radius: 8px;
-  background: linear-gradient(90deg, rgba(125, 211, 252, 0.06), rgba(125, 211, 252, 0.02));
+  background: rgba(125, 211, 252, 0.08);
   color: var(--muted);
-  border: 1px solid rgba(125, 211, 252, 0.06)
+  border: 1px solid rgba(125, 211, 252, 0.15)
 }
 
 .contact {

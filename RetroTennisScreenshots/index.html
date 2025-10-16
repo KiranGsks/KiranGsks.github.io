@@ -657,22 +657,55 @@
         if (e.key === 'ArrowRight') { nextBtn.click(); }
       });
 
-      // Pointer drag for pan
-      stage.addEventListener('pointerdown', (e) => {
+      // Pointer drag for pan and touch-swipe for navigation when unzoomed
+      stage.addEventListener('pointerdown', (e)=>{
         stage.setPointerCapture(e.pointerId);
-        state.dragging = true; state.lastX = e.clientX; state.lastY = e.clientY;
-        stage.style.cursor = 'grabbing';
+        // If this is a touch and image is not zoomed, start a potential swipe gesture.
+        if(e.pointerType === 'touch' && state.scale === 1){
+          state.swipe = { startX: e.clientX, startY: e.clientY, startT: Date.now() };
+        } else {
+          // normal pan start
+          state.dragging = true; state.lastX = e.clientX; state.lastY = e.clientY;
+          stage.style.cursor = 'grabbing';
+        }
       });
-      stage.addEventListener('pointermove', (e) => {
-        if (!state.dragging) return;
+
+      stage.addEventListener('pointermove', (e)=>{
+        // If a potential swipe is active, detect vertical cancel and ignore pan until decision
+        if(state.swipe){
+          const dx = e.clientX - state.swipe.startX;
+          const dy = e.clientY - state.swipe.startY;
+          // If user moves mostly vertically, cancel swipe (likely a scroll intent)
+          if(Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 10){ state.swipe = null; }
+          return;
+        }
+
+        if(!state.dragging) return;
         const dx = e.clientX - state.lastX;
         const dy = e.clientY - state.lastY;
         state.lastX = e.clientX; state.lastY = e.clientY;
         // only pan when zoomed-in
-        if (state.scale > 1) { state.tx += dx; state.ty += dy; applyTransform(); }
+        if(state.scale > 1){ state.tx += dx; state.ty += dy; applyTransform(); }
       });
-      stage.addEventListener('pointerup', (e) => { state.dragging = false; stage.style.cursor = 'default'; stage.releasePointerCapture?.(e.pointerId); });
-      stage.addEventListener('pointercancel', () => { state.dragging = false; stage.style.cursor = 'default'; });
+
+      stage.addEventListener('pointerup', (e)=>{
+        if(state.swipe){
+          const dx = e.clientX - state.swipe.startX;
+          const dy = e.clientY - state.swipe.startY;
+          const dt = Date.now() - state.swipe.startT;
+          // clear swipe state
+          state.swipe = null;
+          // threshold: horizontal motion, reasonably quick, and larger than vertical move
+          if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5 && dt < 600){
+            if(dx > 0) prevBtn.click(); else nextBtn.click();
+            stage.releasePointerCapture?.(e.pointerId);
+            return;
+          }
+        }
+        state.dragging = false; stage.style.cursor = 'default'; stage.releasePointerCapture?.(e.pointerId);
+      });
+
+      stage.addEventListener('pointercancel', ()=>{ state.dragging = false; state.swipe = null; stage.style.cursor = 'default'; });
 
       // Wheel zoom
       stage.addEventListener('wheel', (e) => {

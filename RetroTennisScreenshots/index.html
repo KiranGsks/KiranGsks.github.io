@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>RetroTennis Screenshots</title>
-    <link rel="icon" href="../assets/images/retro_logo.png">
+    <link rel="icon" href="/assets/images/logo.png" type="image/png" sizes="48x48">
   <style>
     :root{--bg:#0f1720;--card:#0b1220;--muted:#9aa4b2;--accent:#7dd3fc}
     html,body{height:100%}
@@ -72,6 +72,8 @@
     <div style="flex:1"></div>
     <div class="header-buttons">
       <a class="rt-btn" href="../index.html" title="Home">Home</a>
+      <!-- Inject shared theme toggle here -->
+      <div id="themeToggleContainer" data-theme-toggle-container aria-hidden="true"></div>
     </div>
     </header>
   <body>
@@ -263,4 +265,5 @@
       ['prevBtn','nextBtn','closeBtn'].forEach(id=>{ const el = $('#'+id); if(el) el.tabIndex = 0; });
     });
   </script>
+<script src="/assets/js/theme.js"></script>
 </body>

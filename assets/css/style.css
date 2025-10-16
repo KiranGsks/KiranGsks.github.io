@@ -1,5 +1,7 @@
 :root{
-  --bg:#0f1724;
+  /* dark theme defaults (used when client prefers dark or no preference) */
+  --bg-start:#061021;
+  --bg-end:#06151f;
   --card:#0b1220;
   --muted:#94a3b8;
   --accent:#7dd3fc;
@@ -12,13 +14,71 @@
 body{
   margin:0;
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-  background:linear-gradient(180deg,#061021 0%, #06151f 60%);
+  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 60%);
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   display:flex;
   flex-direction:column;
   min-height:100vh;
+}
+
+/* Light theme: when client prefers light, override variables */
+@media (prefers-color-scheme: light){
+  :root{
+    /* softer, soothing light palette */
+    --bg-start:#f5f8fb; /* soft off-white */
+    --bg-end:#fbfdff;   /* very pale blue-white */
+    --card:#f8fbff;     /* gentle card background (not pure white) */
+    --muted:#475569;
+    --accent:#0369a1; /* darker cyan for contrast */
+    --text:#071128; /* dark text */
+    --glass:rgba(0,0,0,0.04);
+  }
+}
+
+/* Manual theme overrides: data-theme on <html> takes precedence over prefers-color-scheme */
+:root[data-theme="light"]{
+  --bg-start:#f5f8fb;
+  --bg-end:#fbfdff;
+  --card:#f8fbff;
+  --muted:#475569;
+  --accent:#0369a1;
+  --text:#071128;
+  --glass:rgba(0,0,0,0.04);
+}
+
+:root[data-theme="dark"]{
+  --bg-start:#061021;
+  --bg-end:#06151f;
+  --card:#0b1220;
+  --muted:#94a3b8;
+  --accent:#7dd3fc;
+  --text:#e6eef6;
+  --glass:rgba(255,255,255,0.03);
+}
+
+/* Theme toggle button */
+.theme-toggle{display:inline-flex;align-items:center;gap:0.5rem;padding:0.35rem 0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text);font-weight:600;cursor:pointer}
+.theme-toggle svg{width:18px;height:18px;display:block}
+.theme-toggle:focus{outline:2px solid rgba(125,211,252,0.12);outline-offset:2px}
+
+/* Theme toggle icon visibility */
+.theme-toggle .icon{display:none;width:18px;height:18px}
+.theme-toggle .icon path,.theme-toggle .icon circle,.theme-toggle .icon rect{stroke:currentColor}
+
+/* Default: system (no data-theme or explicit system) */
+.theme-toggle:not([data-theme]) .icon-system,
+.theme-toggle[data-theme="system"] .icon-system{display:block}
+
+/* Dark */
+.theme-toggle[data-theme="dark"] .icon-dark{display:block}
+
+/* Light */
+.theme-toggle[data-theme="light"] .icon-light{display:block}
+
+@media (max-width:640px){
+  .theme-toggle{padding:0.25rem 0.5rem;font-size:0.9rem}
 }
 .container{max-width:980px;margin:0 auto;padding:1rem}
 .site-header{border-bottom:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);}

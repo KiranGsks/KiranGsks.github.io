@@ -7,6 +7,8 @@
     <meta http-equiv="refresh" content="0; url=home.html">
     <link rel="canonical" href="home.html">
     <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#061021" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f8fb" media="(prefers-color-scheme: light)">
     <style>
       body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#0b1020; color:#fff }
       .box { text-align:center; max-width:540px; padding:24px }
@@ -19,5 +21,27 @@
       <p>If you are not redirected automatically, <a href="home.html">click here to go to the landing page</a>.</p>
       <p><small>If you expected a different page, update your bookmarks to point to <code>/home.html</code>.</small></p>
     </div>
+    <script>
+      (function(){
+        var THEME_KEY = 'site_theme';
+        function effectiveIsDark(){
+          try{
+            var forced = localStorage.getItem(THEME_KEY);
+            if(forced === 'light') return false;
+            if(forced === 'dark') return true;
+          }catch(e){/*ignore*/}
+          return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        function updateThemeColor(){
+          var dark = effectiveIsDark();
+          var color = dark ? '#061021' : '#f5f8fb';
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if(!meta){ meta = document.createElement('meta'); meta.name='theme-color'; document.head.appendChild(meta); }
+          meta.content = color;
+        }
+        updateThemeColor();
+        if(window.matchMedia) window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateThemeColor);
+      })();
+    </script>
   </body>
 </html>

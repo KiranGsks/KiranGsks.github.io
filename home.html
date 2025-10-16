@@ -7,6 +7,8 @@
   <meta name="description" content="Placeholder landing page for KiranGsks.github.io -- links to projects and site sections">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" href="assets/images/retro_logo.png" type="image/png" sizes="48x48">
+  <meta name="theme-color" content="#061021" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f8fb" media="(prefers-color-scheme: light)">
 </head>
 <body>
   <header class="site-header">
@@ -14,6 +16,26 @@
       <a class="brand" href="index.html">Retro Tennis</a>
       <nav class="nav">
       </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <!-- System icon (desktop + phone / gear-like) -->
+        <svg class="icon icon-system" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="7" y="8" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+
+        <!-- Dark mode (moon) -->
+        <svg class="icon icon-dark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- Light mode (sun) -->
+        <svg class="icon icon-light" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2v1.5M12 20.5V22M4.2 4.2l1.06 1.06M18.74 18.74l1.06 1.06M2 12h1.5M20.5 12H22M4.2 19.8l1.06-1.06M18.74 5.26l1.06-1.06" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <span>Theme</span>
+      </button>
     </div>
   </header>
 
@@ -38,35 +60,71 @@
       </section>
 
       <section class="card">
-        <h2>RetroTennis -- Event links</h2>
-        <h3>About </h3>
-        <p>
-          This Retro Tennis project demonstrates our "foot in the door" approach; hands-on development that showcases privacy-first thinking, clean design language, and Neo-UX principles.
-        </p>
-        <p>
-          This WearOS game is our attempt at recreating the classic Pong game with a retro aesthetic and modern twists. 
-          <br> We aim to evoke nostalgia while providing a fresh experience for players of all ages.
-        </p>
-        <p class="muted">Shortcuts for attendees: screenshots, a short video, and the Play Store testing link.</p>
-        <div class="event-buttons">
-          <a class="btn" href="RetroTennisScreenshots/">Screenshots</a>
-          <a class="btn" href="https://youtube.com/shorts/0XOS0x1Ekic" target="_blank" rel="noopener">Demo Short</a>
-          <a class="btn" href="https://www.youtube.com/shorts/cV7mmgu7l9E" target="_blank" rel="noopener">Inspiration Short</a>
-          <a class="btn ghost" href="https://play.google.com/apps/testing/vtz.rama.retrotennis" target="_blank" rel="noopener">Play Store</a>
-          <button id="installGuideBtn" class="btn ghost" aria-expanded="false">Install Guide</button>
-        </div>
+        <div class="retro-wrap">
+          <h2>RetroTennis -- Event links</h2>
+          <h3>About</h3>
 
-        <details id="installDetails" style="margin-top:0.9rem;border-top:1px dashed rgba(255,255,255,0.04);padding-top:0.75rem">
-          <summary style="cursor:pointer">Closed testing installation walkthrough</summary>
-          <ol style="margin-top:0.5rem">
-            <li>Open the Play Store testing link provided above.</li>
-            <li>Sign in with the Google account you want to use on the device.</li>
-            <li>Join the tester group (there may be a Join / Opt-in button).</li>
-            <li>On the target Android device, open Play Store and go to the app's listing. You should see an option to install the test build.</li>
-            <li>If you don't see it immediately, try opening the link on the device or clearing the Play Store cache and retrying.</li>
-          </ol>
-          <p class="muted" style="margin-top:0.5rem;word-break:break-word">If you have trouble, contact us at <a href="mailto:gskskiran@gmail.com" >gskskiran@gmail.com</a>.</p>
-        </details>
+          <p>This Retro Tennis project demonstrates our "foot in the door" approach; hands-on development that showcases privacy-first thinking, clean design language, and Neo-UX principles.</p>
+
+          <p>This game is our attempt at recreating the classic Pong game with a retro aesthetic and modern twists. We aim to evoke nostalgia while providing a fresh experience for players of all ages.</p>
+
+          <section class="retro-description">
+            <h4>One of the First computer games ever made, reimagined for your smartwatch.</h4>
+
+            <p>Experience fast-paced tennis action directly on your WearOS device. No phone needed*. Just tap, swing, and score. We want this to be a pure game as is, no data collection or unnecessary background activities.</p>
+
+            <h4>FEATURES</h4>
+            <ul>
+              <li>Pure WearOS gameplay - play anywhere, anytime</li>
+              <li>Retro graphics with ultra smooth animations</li>
+              <li>Built to be light and fast even on older devices</li>
+              <li>Intuitive touch controls optimised for small screens</li>
+              <li>Offline mode available* - no internet required</li>
+              <li>Premium features unlock uninterrupted gameplay</li>
+            </ul>
+
+            <h4>PERFECT FOR</h4>
+            <ul>
+              <li>Quick gaming sessions on your watch</li>
+              <li>Fans of classic arcade sports games</li>
+              <li>Anyone who loves pick-up-and-play fun</li>
+            </ul>
+
+            <h4>PREMIUM BENEFITS</h4>
+            <p>Unlock unlimited credits and advanced features through one-time in-app purchases. No ads, no subscriptions.</p>
+
+            <h4>COMPANION APP</h4>
+            <p>Pair with the mobile companion app to manage credits and sync progress across devices.</p>
+
+            <hr>
+            <p>Retro Tennis is made for people of all ages. No personal data collection. See our <a href="privacypolicy/">privacy policy</a> for details.</p>
+          </section>
+
+          <div class="event-buttons">
+            <a class="btn" href="RetroTennisScreenshots/">Screenshots</a>
+            <a class="btn" href="https://youtube.com/shorts/0XOS0x1Ekic" target="_blank" rel="noopener">Demo Short</a>
+            <a class="btn" href="https://www.youtube.com/shorts/cV7mmgu7l9E" target="_blank" rel="noopener">Inspiration Short</a>
+            <a class="btn ghost" href="https://play.google.com/apps/testing/vtz.rama.retrotennis" target="_blank" rel="noopener">Play Store</a>
+            <button id="installGuideBtn" class="btn ghost" aria-expanded="false">Install Guide</button>
+          </div>
+
+          <details id="installDetails" style="margin-top:0.9rem;border-top:1px dashed rgba(255,255,255,0.04);padding-top:0.75rem">
+            <summary style="cursor:pointer">Closed testing installation walkthrough</summary>
+            <ol style="margin-top:0.5rem">
+              <li>Open the Play Store testing link provided above.</li>
+              <li>Sign in with the Google account you want to use on the device.</li>
+              <li>Join the tester group (there may be a Join / Opt-in button).</li>
+              <li>On the target Android device, open Play Store and go to the app's listing. You should see an option to install the test build.</li>
+              <li>If you don't see it immediately, try opening the link on the device or clearing the Play Store cache and retrying.</li>
+            </ol>
+            <p class="muted" style="margin-top:0.5rem;word-break:break-word">If you have trouble, contact us at <a href="mailto:gskskiran@gmail.com" >gskskiran@gmail.com</a>.</p>
+          </details>
+
+          <!-- Right-locked box attached to right edge containing the image (hidden on small screens) -->
+          <div class="rt-box" aria-hidden="true">
+            <img src="assets/images/SS_1015_1757-portrait.png" alt="Retro Tennis screenshot" loading="lazy">
+          </div>
+        </div>
       </section>
 
       <section class="notice">
@@ -86,6 +144,71 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    (function(){
+      var THEME_KEY = 'site_theme'; // values: 'light' | 'dark' | 'system'
+
+      function effectiveIsDark(){
+        var forced = document.documentElement.getAttribute('data-theme');
+        if(forced === 'light') return false;
+        if(forced === 'dark') return true;
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+
+      function updateThemeColor(){
+        var dark = effectiveIsDark();
+        var color = getComputedStyle(document.documentElement).getPropertyValue('--bg-start').trim() || (dark ? '#061021' : '#f5f8fb');
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if(!meta){ meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
+        meta.content = color;
+      }
+
+      function updateToggleUI(mode){
+        var btn = document.getElementById('themeToggle');
+        if(!btn) return;
+        btn.setAttribute('data-theme', mode);
+        btn.setAttribute('title', 'Theme: ' + (mode === 'system' ? 'System' : mode.charAt(0).toUpperCase() + mode.slice(1)));
+        btn.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
+        var span = btn.querySelector('span');
+        if(span) span.textContent = (mode === 'system' ? 'System' : (mode === 'dark' ? 'Dark' : 'Light'));
+      }
+
+      function applyStoredTheme(){
+        var t = localStorage.getItem(THEME_KEY) || 'system';
+        if(t === 'light' || t === 'dark'){
+          document.documentElement.setAttribute('data-theme', t);
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+        updateToggleUI(t);
+        updateThemeColor();
+      }
+
+      function cycleTheme(){
+        var cur = localStorage.getItem(THEME_KEY) || 'system';
+        var next = cur === 'system' ? 'dark' : (cur === 'dark' ? 'light' : 'system');
+        localStorage.setItem(THEME_KEY, next);
+        applyStoredTheme();
+      }
+
+      // initialize
+      applyStoredTheme();
+
+      // wire button
+      var btn = document.getElementById('themeToggle');
+      if(btn){
+        btn.addEventListener('click', function(){ cycleTheme(); });
+      }
+
+      // respond to system changes when in 'system' mode
+      if(window.matchMedia){
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(){ if((localStorage.getItem(THEME_KEY) || 'system') === 'system') updateThemeColor(); });
+      }
+
+      // expose for debugging
+      window.__applyStoredTheme = applyStoredTheme;
+    })();
   </script>
 </body>
 </html>

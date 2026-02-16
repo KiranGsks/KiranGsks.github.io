@@ -1,47 +1,183 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Redirecting — Home</title>
-  <meta http-equiv="refresh" content="0; url=home.html">
-  <link rel="canonical" href="home.html">
-  <meta name="robots" content="index,follow">
-  <link rel="icon" href="/assets/images/logo.png" type="image/png" sizes="48x48">
-  <meta name="theme-color" content="#061021" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f5f8fb" media="(prefers-color-scheme: light)">
-  <style>
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background: #0b1020;
-      color: #fff
-    }
-
-    .box {
-      text-align: center;
-      max-width: 540px;
-      padding: 24px
-    }
-
-    a {
-      color: #9bdcff
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roko Games - Wearable Gaming Infrastructure</title>
+    <meta name="description" content="Building platform-native, sensor-first games for Wear OS and WatchOS. Home of RetroTennis.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <div class="box">
-    <h1>Redirecting to Home</h1>
-    <p>If you are not redirected automatically, <a href="home.html">click here to go to the landing page</a>.</p>
-    <p><small>If you expected a different page, update your bookmarks to point to <code>/home.html</code>.</small></p>
-  </div>
-  <script src="/assets/js/theme.js"></script>
-</body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <a href="/" class="brand">Roko Games</a>
+            <nav class="nav">
+                <a href="#games">Games</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <main class="container">
+        <section class="hero">
+            <div class="hero-inner">
+                <h1>Wearable Gaming Infrastructure</h1>
+                <p class="lede">
+                    Building platform-native, sensor-first games for smartwatches. 
+                    We leverage gyroscope, accelerometer, and haptic feedback to create 
+                    experiences that only wearables can deliver.
+                </p>
+                <div class="links">
+                    <a href="#games" class="btn">Explore Games</a>
+                    <a href="mailto:gskskiran@gmail.com" class="btn ghost">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+<section id="games" style="margin-top: 3rem;">
+    <h2 style="margin-bottom: 1.5rem;">Our Games</h2>
+    
+    <!-- RetroTennis Card WITH IMAGE -->
+    <div class="card game-card" style="margin-bottom: 1.5rem;">
+        <div class="game-card-image">
+            <img src="images/retrotennis-hero.jpg" alt="RetroTennis - Gyro-controlled tennis game for Wear OS smartwatches">
+        </div>
+        <div>
+            <h3 style="color: var(--accent); margin-top: 0;">RetroTennis</h3>
+            <p class="muted">Status: Beta Testing | Platform: Wear OS</p>
+            <p style="margin-top: 1rem;">
+                A gyroscope-controlled tennis game with overhead court perspective. 
+                Control your paddle with wrist tilts, feel every hit through haptic feedback, 
+                and master the sensor-native gameplay designed specifically for smartwatch hardware.
+            </p>
+            <div class="notice">
+                <strong>Beta Program:</strong> Join our testing community and help shape the future of smartwatch gaming.
+            </div>
+            <div class="event-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.rokogames.retrotennis" class="btn" target="_blank" rel="noopener">
+                    Play Store (Beta)
+                </a>
+                <a href="mailto:gskskiran@gmail.com?subject=RetroTennis Beta Access" class="btn ghost">
+                    Request Access
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Road Rash Card WITH IMAGE -->
+    <div class="card game-card" style="margin-bottom: 1.5rem;">
+        <div class="game-card-image">
+            <img src="images/roadrash-hero.jpg" alt="Road Rash - Retro motorcycle racing game with tilt controls for Wear OS">
+        </div>
+        <div>
+            <h3 style="color: var(--accent); margin-top: 0;">Road Rash</h3>
+            <p class="muted">Status: In Development | Platform: Wear OS | Launch: April 2026</p>
+            <p style="margin-top: 1rem;">
+                Retro-style motorcycle racing with tilt-to-steer mechanics. 
+                Dodge traffic, punch opponents, and feel every bump through haptic feedback. 
+                Nostalgia meets sensor-first design.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pinball Card WITH IMAGE -->
+    <div class="card game-card">
+        <div class="game-card-image">
+            <img src="images/pinball-hero.jpg" alt="Pinball - Physics arcade game with gyro nudging for Wear OS">
+        </div>
+        <div>
+            <h3 style="color: var(--accent); margin-top: 0;">Pinball</h3>
+            <p class="muted">Status: Pre-Production | Platform: Wear OS | Launch: May 2026</p>
+            <p style="margin-top: 1rem;">
+                Classic pinball reimagined for smartwatches. Use gyro nudging to influence 
+                ball trajectory and crown button for flippers. Coming May 2026.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+        <!-- About Section -->
+        <section id="about" style="margin-top: 3rem;">
+            <div class="card">
+                <h2>About Roko Games</h2>
+                <p>
+                    Roko Games is building the gaming infrastructure layer for wearable devices. 
+                    Our proprietary <strong>Roko Sensor Engine</strong> enables rapid development of 
+                    platform-native games that leverage accelerometer, gyroscope, and haptic controls—
+                    creating experiences that mobile ports simply can't deliver.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <strong>Incubated by IMAGE CoE (STPI)</strong>, we're a lean indie studio focused 
+                    on defining the interaction model for smartwatch gaming. Think of us as building 
+                    the "Unity for Wearables."
+                </p>
+                
+                <details style="margin-top: 1.5rem;">
+                    <summary>Our Technology</summary>
+                    <div style="padding-top: 0.75rem;">
+                        <ul style="margin: 0; padding-left: 1.5rem;">
+                            <li>Reusable sensor middleware (70%+ code reusability)</li>
+                            <li>Battery-optimized sensor polling (&lt;2% drain per 10 minutes)</li>
+                            <li>Haptic-first UI design (reduces screen clutter)</li>
+                            <li>Cross-platform support (Wear OS + WatchOS)</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details style="margin-top: 1rem;">
+                    <summary>Market Opportunity</summary>
+                    <div style="padding-top: 0.75rem;">
+                        <ul style="margin: 0; padding-left: 1.5rem;">
+                            <li>Wearable gaming: $486M market (2025), 6.8% CAGR</li>
+                            <li>Wear OS growth: 25.4% CAGR through 2030</li>
+                            <li>Early-mover advantage in platform-native category</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="margin-top: 3rem;">
+            <div class="card">
+                <h2>Contact</h2>
+                <div class="contact">
+                    <p><strong>Roko Games Private Limited</strong></p>
+                    <p class="muted">
+                        Incubated at IMAGE CoE, STPI<br>
+                        Visakhapatnam, Andhra Pradesh, India
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Email:</strong> <a href="mailto:gskskiran@gmail.com">gskskiran@gmail.com</a><br>
+                        <strong>Founder:</strong> G.S.K.S. Kiran (CEO)
+                    </p>
+                    <p class="muted" style="margin-top: 1rem;">
+                        <strong>UDYAM Registration:</strong> UDYAM-AP-10-0124235<br>
+                        <strong>Registered:</strong> January 7, 2026
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container" style="text-align: center; padding: 2rem 1rem;">
+            <p>© 2026 Roko Games Private Limited. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                Made with passion in Visakhapatnam, India.
+            </p>
+        </div>
+    </footer>
+
+    <script src="theme.js"></script>
+</body>
 </html>

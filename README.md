@@ -43,6 +43,38 @@ This repo is published via GitHub Pages on the **`main`** branch.
 - [ ] Verify all external links
 - [ ] Check Open Graph preview (LinkedIn/Twitter)
 
+## 📱 Mobile stability notes
+
+To keep the site stable on mobile (no accidental desktop-like zoom/layout shifts), the CSS now enforces:
+
+- global horizontal overflow protection (`html, body { overflow-x: hidden; }`)
+- responsive container width (`width: min(980px, 100%)`)
+- safe media sizing (`img, video, iframe { max-width: 100%; }`)
+- mobile grid header layout (brand + toggle + nav)
+- stacked CTA buttons in compact view (`.event-buttons` becomes 1-column)
+
+If mobile layout ever looks “desktop-ish” again, first check for any new fixed-width elements or long unbroken text/button labels.
+
+## ✨ Visual style guidance
+
+The glass effect is intentionally subtle but more pronounced using:
+
+- layered translucent gradients on cards
+- slightly stronger border contrast
+- soft inner highlight + blur/saturation
+
+When editing, prefer small alpha tweaks over hard opacity jumps to keep the UI premium and light.
+
+## 🛠️ Suggested deployment commands
+
+Use these from repo root:
+
+`git add .`
+
+`git commit -m "Polish mobile stability and glass UI"`
+
+`git push origin main`
+
 ## 📫 Contact
 
 **Roko Games Private Limited**

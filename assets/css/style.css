@@ -30,6 +30,23 @@ body {
   min-height: 100vh;
 }
 
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 200;
+}
+
+.skip-link:focus {
+  left: 1rem;
+}
+
 /* Light theme override */
 @media (prefers-color-scheme: light) {
   :root {
@@ -76,6 +93,7 @@ body {
   top: 0;
   z-index: 100;
   background: rgba(6, 16, 33, 0.8);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
 .site-header .container {
@@ -105,10 +123,26 @@ body {
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.2s ease;
+  position: relative;
 }
 
 .nav a:hover {
   color: var(--accent);
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
 }
 
 .hero {
@@ -135,6 +169,13 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(125, 211, 252, 0.15);
 }
 
 .card h2 {
@@ -165,6 +206,11 @@ body {
   height: auto;
   display: block;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-card-image img {
+  transform: scale(1.02);
 }
 
 details {
@@ -379,6 +425,12 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(125, 211, 252, 0.2);
 }
 
 .stat-value {

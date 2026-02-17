@@ -2,7 +2,7 @@
 
 Single-page marketing site for **Roko Games Private Limited** (roko.co.in). Built with plain HTML/CSS/JS to stay fast, lightweight, and easy to maintain.
 
-## 📌 What’s in this repo
+## What’s in this repo
 
 - `index.html` — main site (single-page layout)
 - `assets/css/style.css` — shared styling (dark glassmorphism theme)
@@ -11,7 +11,7 @@ Single-page marketing site for **Roko Games Private Limited** (roko.co.in). Buil
 - `RetroTennisScreenshots/` — full screenshot gallery page + images
 - `privacypolicy/` — RetroTennis privacy policy
 
-## ✅ Quick edits (content updates)
+## Quick edits (content updates)
 
 Most edits happen in **`index.html`**:
 - Hero text + CTAs
@@ -20,14 +20,14 @@ Most edits happen in **`index.html`**:
 - Founders and company details
 - Links (Play Store, YouTube, Reddit, etc.)
 
-## 🖼️ Image locations
+## Image locations
 
 - **Brand / studio images:** `assets/images/`
 - **RetroTennis screenshots:** `RetroTennisScreenshots/images/`
 
 If you add new images, keep filenames short and avoid spaces when possible (faster for CDNs and easier linking).
 
-## 🚀 Deployment (GitHub Pages)
+## Deployment (GitHub Pages)
 
 This repo is published via GitHub Pages on the **`main`** branch.
 
@@ -36,14 +36,14 @@ This repo is published via GitHub Pages on the **`main`** branch.
 2. Push to `main`
 3. GitHub Pages auto-deploys to **https://roko.co.in**
 
-## 🔍 Pre-launch checklist
+## Pre-launch checklist
 
 - [ ] Open `index.html` locally and check layout on mobile + desktop
 - [ ] Confirm all images load (no 404s)
 - [ ] Verify all external links
 - [ ] Check Open Graph preview (LinkedIn/Twitter)
 
-## 📱 Mobile stability notes
+## Mobile stability notes
 
 To keep the site stable on mobile (no accidental desktop-like zoom/layout shifts), the CSS now enforces:
 
@@ -55,7 +55,7 @@ To keep the site stable on mobile (no accidental desktop-like zoom/layout shifts
 
 If mobile layout ever looks “desktop-ish” again, first check for any new fixed-width elements or long unbroken text/button labels.
 
-## ✨ Visual style guidance
+## Visual style guidance
 
 The glass effect is intentionally subtle but more pronounced using:
 
@@ -65,7 +65,7 @@ The glass effect is intentionally subtle but more pronounced using:
 
 When editing, prefer small alpha tweaks over hard opacity jumps to keep the UI premium and light.
 
-## 🛠️ Suggested deployment commands
+## Suggested deployment commands
 
 Use these from repo root:
 
@@ -75,7 +75,7 @@ Use these from repo root:
 
 `git push origin main`
 
-## 📫 Contact
+## Contact
 
 **Roko Games Private Limited**
 - Email: gskskiran@gmail.com

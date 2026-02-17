@@ -287,6 +287,360 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ---------- Brand logo in header ---------- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-logo {
+  height: 28px;
+  width: auto;
+}
+
+/* ---------- Theme toggle button ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+.theme-toggle .icon {
+  width: 18px;
+  height: 18px;
+  display: none;
+}
+
+.theme-toggle[data-theme="system"] .icon-system { display: block; }
+.theme-toggle[data-theme="dark"] .icon-dark { display: block; }
+.theme-toggle[data-theme="light"] .icon-light { display: block; }
+
+.theme-toggle span {
+  font-size: 0.9rem;
+}
+
+/* ---------- Hero enhancements ---------- */
+.hero-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-graphic {
+  flex: 0 0 200px;
+  text-align: center;
+}
+
+.hero-graphic img {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 0 30px rgba(125, 211, 252, 0.25));
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ---------- Stats row ---------- */
+.stats-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  flex: 1 1 140px;
+  text-align: center;
+  padding: 1rem 0.75rem;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+
+.stat-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* ---------- Section headings ---------- */
+.section-heading {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+.section {
+  margin-top: 4rem;
+}
+
+/* ---------- Game grid ---------- */
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.game-grid-sub {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.game-card.featured {
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  box-shadow: 0 4px 30px rgba(125, 211, 252, 0.08);
+}
+
+.game-card.featured .game-card-image {
+  max-height: 320px;
+}
+
+.game-card-image {
+  max-height: 240px;
+}
+
+.game-card-image img {
+  max-height: inherit;
+}
+
+/* ---------- Status badge ---------- */
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-badge.beta {
+  background: rgba(125, 211, 252, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(125, 211, 252, 0.25);
+}
+
+.status-badge.coming {
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--muted);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* ---------- Screenshot gallery (horizontal scroll) ---------- */
+.screenshot-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem 0 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.screenshot-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.screenshot-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.screenshot-scroll::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+.screenshot-scroll img {
+  height: 200px;
+  width: auto;
+  border-radius: 12px;
+  scroll-snap-align: start;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.screenshot-scroll img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 20px rgba(125, 211, 252, 0.2);
+}
+
+/* ---------- Video embed ---------- */
+.video-container {
+  position: relative;
+  max-width: 360px;
+  margin: 1.5rem auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  background: #000;
+}
+
+.video-container iframe {
+  display: block;
+  width: 100%;
+  height: 640px;
+  border: 0;
+}
+
+/* ---------- Tech features grid ---------- */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.tech-item {
+  padding: 1rem;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.tech-item strong {
+  display: block;
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.tech-item span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* ---------- Advantage pills ---------- */
+.advantage-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.advantage-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba(125, 211, 252, 0.06);
+  border: 1px solid rgba(125, 211, 252, 0.12);
+  border-radius: 30px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.advantage-pill .pill-value {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+/* ---------- Founder cards ---------- */
+.founder-row {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.founder-card {
+  flex: 1 1 200px;
+  padding: 1rem;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+.founder-card h4 {
+  margin: 0 0 0.25rem;
+  color: var(--accent);
+}
+
+.founder-card .role {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.founder-card p:last-child {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ---------- Entrance animations ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Footer links row ---------- */
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+/* ---------- Light theme header fix ---------- */
+:root[data-theme="light"] .site-header {
+  background: rgba(245, 248, 251, 0.85);
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-color-scheme: light) {
+  .site-header {
+    background: rgba(245, 248, 251, 0.85);
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+  }
+}
+
 /* Mobile optimizations */
 @media (max-width: 640px) {
   .container {
@@ -301,6 +655,24 @@ html {
     font-size: 1rem;
   }
 
+  .brand-logo {
+    height: 22px;
+  }
+
+  .theme-toggle {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .theme-toggle .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .theme-toggle span {
+    display: none;
+  }
+
   .nav {
     gap: 1rem;
   }
@@ -311,6 +683,20 @@ html {
 
   .hero {
     padding: 2rem 0 1.5rem;
+  }
+
+  .hero-row {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .hero-graphic {
+    flex: 0 0 auto;
+  }
+
+  .hero-graphic img {
+    width: 140px;
   }
 
   .card {
@@ -332,5 +718,42 @@ html {
 
   h3 {
     font-size: 1.15rem;
+  }
+
+  .stat-item {
+    flex: 1 1 100px;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .screenshot-scroll img {
+    height: 160px;
+  }
+
+  .video-container {
+    max-width: 100%;
+  }
+
+  .video-container iframe {
+    height: 500px;
+  }
+
+  .section {
+    margin-top: 3rem;
+  }
+
+  .game-grid-sub {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .advantage-row {
+    justify-content: center;
   }
 }

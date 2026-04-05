@@ -15,10 +15,12 @@ Single-page marketing site for **Roko Games Private Limited** (roko.co.in). Buil
 
 Most edits happen in **`index.html`**:
 - Hero text + CTAs
-- Game descriptions and statuses
+- Game descriptions, names, and development status (e.g. RageRide progress %)
 - Metrics / social proof
 - Founders and company details
 - Links (Play Store, YouTube, Reddit, etc.)
+
+Game card images live in **`assets/images/`** (e.g. `RageRide.png`, `BlindMaze.png`).
 
 ## Image locations
 

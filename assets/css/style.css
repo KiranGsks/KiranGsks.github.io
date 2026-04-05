@@ -619,6 +619,35 @@ html {
   box-shadow: 0 4px 20px rgba(125, 211, 252, 0.2);
 }
 
+/* ---------- Demo section multi-game grid ---------- */
+.demo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.demo-item {
+  flex: 0 1 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.demo-item .video-container {
+  margin: 0.5rem auto 0;
+  width: 100%;
+}
+
+.demo-game-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: center;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.02em;
+}
+
 /* ---------- Video embed ---------- */
 .video-container {
   position: relative;
@@ -636,6 +665,36 @@ html {
   width: 100%;
   height: 640px;
   border: 0;
+}
+
+.video-poster {
+  display: block;
+  width: 100%;
+  height: 640px;
+  object-fit: cover;
+}
+
+.video-coming-soon-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 16, 33, 0.62);
+  backdrop-filter: blur(6px);
+}
+
+.video-coming-soon-overlay span {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* ---------- Tech features grid ---------- */
@@ -893,6 +952,14 @@ iframe {
 
   .video-container iframe {
     height: 500px;
+  }
+
+  .video-poster {
+    height: 500px;
+  }
+
+  .demo-item {
+    flex: 1 1 100%;
   }
 
   .section {

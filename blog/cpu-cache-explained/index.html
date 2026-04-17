@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is CPU Cache? Why Does It Matter? | Roko Games</title>
+    <meta name="description" content="Understand what CPU cache is, how L1, L2, and L3 caches work, the difference between SRAM and DRAM, and why cache matters for processor performance — explained with a dining table analogy.">
+    <meta name="keywords" content="CPU cache, L1 cache, L2 cache, L3 cache, SRAM vs DRAM, processor cache, cache hit, cache miss, CPU performance">
+    <meta name="author" content="Roko Games">
+    <link rel="canonical" href="https://roko.co.in/blog/cpu-cache-explained/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What is CPU Cache? Why Does It Matter?">
+    <meta property="og:description" content="Understand CPU cache, how L1/L2/L3 caches work, SRAM vs DRAM, and why cache matters — explained with an intuitive dining table analogy.">
+    <meta property="og:url" content="https://roko.co.in/blog/cpu-cache-explained/">
+    <meta property="og:site_name" content="Roko Games">
+    <meta property="og:image" content="https://roko.co.in/blog/cpu-cache-explained/images/cpu-cache-layout.jpg">
+    <meta property="article:published_time" content="2022-10-01T00:00:00+05:30">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What is CPU Cache? Why Does It Matter?">
+    <meta name="twitter:description" content="Understand CPU cache, how L1/L2/L3 caches work, SRAM vs DRAM, and why cache matters — explained with an intuitive dining table analogy.">
+    <meta name="twitter:image" content="https://roko.co.in/blog/cpu-cache-explained/images/cpu-cache-layout.jpg">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#061021" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f8fb" media="(prefers-color-scheme: light)">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/logo.png" type="image/png" sizes="48x48">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What is CPU Cache? Why Does It Matter?",
+        "description": "Understand what CPU cache is, how L1, L2, and L3 caches work, the difference between SRAM and DRAM, and why cache matters for processor performance.",
+        "image": "https://roko.co.in/blog/cpu-cache-explained/images/cpu-cache-layout.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Roko Games"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Roko Games",
+            "url": "https://roko.co.in"
+        },
+        "datePublished": "2022-10-01",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://roko.co.in/blog/cpu-cache-explained/"
+        }
+    }
+    </script>
+
+    <style>
+        /* ── Theme variables (matching site design system) ── */
+        :root {
+            --bg-start: #061021;
+            --bg-end: #06151f;
+            --card: #1a233265;
+            --accent: #7dd3fc;
+            --text: #e6eef6;
+            --muted: #94a3b8;
+            --glass: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.06);
+        }
+        html[data-theme="light"],
+        :root:has(#themeToggle[data-mode="light"]) {
+            --bg-start: #f5f8fb;
+            --bg-end: #fbfdff;
+            --card: #f8fbff;
+            --accent: #0369a1;
+            --text: #071128;
+            --muted: #475569;
+            --glass: rgba(0,0,0,0.04);
+            --border: rgba(0,0,0,0.08);
+        }
+        @media (prefers-color-scheme: light) {
+            :root:not([data-theme="dark"]) {
+                --bg-start: #f5f8fb;
+                --bg-end: #fbfdff;
+                --card: #f8fbff;
+                --accent: #0369a1;
+                --text: #071128;
+                --muted: #475569;
+                --glass: rgba(0,0,0,0.04);
+                --border: rgba(0,0,0,0.08);
+            }
+        }
+
+        /* ── Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            color: var(--text);
+            line-height: 1.75;
+            min-height: 100vh;
+        }
+
+        /* ── Header ── */
+        header {
+            position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(14px) saturate(120%);
+            -webkit-backdrop-filter: blur(14px) saturate(120%);
+            background: var(--glass);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .brand {
+            display: flex; align-items: center; gap: 0.5rem;
+            text-decoration: none; color: var(--accent);
+            font-weight: 700; font-size: 1.1rem;
+        }
+        .brand img { height: 28px; width: 28px; border-radius: 6px; }
+
+        /* ── Article container ── */
+        .article-container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* ── Article header ── */
+        .article-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+        }
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        /* ── Content ── */
+        .article-body h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--accent);
+        }
+        .article-body h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+        }
+        .article-body p {
+            margin-bottom: 1.25rem;
+            color: var(--text);
+        }
+        .article-body ul, .article-body ol {
+            margin: 0 0 1.25rem 1.5rem;
+        }
+        .article-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── Figures ── */
+        figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        figcaption {
+            margin-top: 0.65rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* ── Tables ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        thead th {
+            background: var(--accent);
+            color: #000;
+            font-weight: 600;
+            padding: 0.65rem 0.85rem;
+            text-align: left;
+        }
+        tbody td {
+            padding: 0.55rem 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+        tbody tr:nth-child(even) {
+            background: var(--glass);
+        }
+
+        /* ── Card callout ── */
+        .callout {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* ── Analogy mapping ── */
+        .analogy-step {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 0.75rem 0;
+        }
+        .analogy-step .real {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 0.35rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Theme toggle ── */
+        #themeToggle {
+            background: none; border: 1px solid var(--border);
+            border-radius: 8px; padding: 6px 8px;
+            cursor: pointer; color: var(--muted);
+            display: flex; align-items: center; gap: 4px;
+            transition: border-color 0.2s;
+        }
+        #themeToggle:hover { border-color: var(--accent); }
+        #themeToggle svg { width: 18px; height: 18px; }
+        .theme-icon { display: none; }
+        .theme-icon.active { display: block; }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .article-body h2 { font-size: 1.2rem; }
+            .article-container { padding: 1.25rem 1rem 3rem; }
+            table { font-size: 0.8rem; }
+            thead th, tbody td { padding: 0.45rem 0.55rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="brand" href="https://roko.co.in">
+            <img src="../../assets/images/logo%20-%20BGr.png" alt="Roko Games" width="28" height="28">
+            Roko Games
+        </a>
+        <div id="themeToggleContainer"></div>
+    </header>
+
+    <main class="article-container">
+        <article>
+            <div class="article-header">
+                <h1>What is CPU Cache? Why Does It Matter?</h1>
+                <p class="article-meta">Published by Roko Games &middot; Technology &middot; Explained with an analogy</p>
+            </div>
+
+            <div class="article-body">
+                <p>If you were looking to buy a laptop or smartphone, anything with a processor, you might've encountered the term <em>cache</em> accompanying the CPU specs. It'd be advertised as 8MB, 12MB, and so on. If you've wondered what is it? And why is it so important that the device maker is advertising its capacity? Well, you've stumbled onto the right article. Skip to <a href="#dining-table-analogy">"The Dining Table Analogy"</a> below to get a layman's explanation of the CPU's working and this cache's role in it.</p>
+
+                <p>A CPU cache is a component of the system developed in the 1980s to deal with the growing disparity between CPU and RAM performances. The CPUs started to outpace the RAM's data-feeding capabilities. So, they envisioned a way to bridge that gap &mdash; an ultra-fast cache storage. This storage holds the data that the CPU would need in the program that it is processing (using various algorithms), guessing what it might need during the process cycle to ensure what is called a "Cache hit", before it goes back to the RAM, which results in a CPU stall as the CPU just wastes its cycle waiting for the data to be fetched back from the RAM.</p>
+
+                <figure>
+                    <img src="images/cpu-cache-layout.jpg" alt="Schematic representation of a Dual core CPU layout showing L1, L2, and shared L3 cache" loading="lazy">
+                    <figcaption>A Schematic representation of a Dual core CPU layout &mdash; observe the L3 being shared by the 2 Cores (Courtesy: guidingtech.com)</figcaption>
+                </figure>
+
+                <p>Meanwhile, the CPU's control unit gets busy figuring out what next is to be loaded onto the Cache, replacing the data already on the Cache while minding not to brush off essential data. The Cache is in three levels, with the L1 Cache being the fastest and smallest, while the L3 being slowest and largest. All were residing on the CPU die mainly to prevent latency issues, as at the speeds at which these components operate, even the speed of electron transfer (which is close to the speed of light) too should be taken into consideration. The slightest of clock delays could jeopardise the CPU's functionality. L3 Cache is often shared between the multiple cores on the die simultaneously. In some designs, this level of Cache is wholly entirely omitted.</p>
+
+                <h2>SRAM</h2>
+
+                <p>Let's now talk about Cache itself. The Cache is what we call an SRAM (Static Random-access memory), this kind of memory is similar to DRAM, which constitutes your computer's primary memory. But the differences are as follows:</p>
+
+                <figure>
+                    <img src="images/sram-vs-dram.png" alt="Infographic comparing Static RAM vs Dynamic RAM characteristics" loading="lazy">
+                    <figcaption>An infographic representing SRAM vs DRAM (Courtesy: Techtarget.com)</figcaption>
+                </figure>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Static RAM (SRAM)</th><th>Dynamic RAM (DRAM)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Does not require refreshing</td><td>Must be continuously refreshed</td></tr>
+                            <tr><td>Requires multiple transistors to store one bit</td><td>Requires one transistor and one capacitor to store one bit</td></tr>
+                            <tr><td>Delivers faster access times</td><td>Delivers slower performance</td></tr>
+                            <tr><td>Consumes less power, especially in idle</td><td>Consumes more power</td></tr>
+                            <tr><td>Takes up more space</td><td>Requires less space</td></tr>
+                            <tr><td>Can hold only a small amount of data</td><td>Can hold much more data</td></tr>
+                            <tr><td>Costs more than DRAM</td><td>Costs less than SRAM</td></tr>
+                            <tr><td>Typically used for a processor's cache</td><td>Typically used for a computer's main memory</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>As evident from the above infographic, SRAM needs six transistors instead of a single transistor and capacitor that a DRAM needs to store a bit of data, but it facilitates exceptionally higher random I/O performance. As a static form of RAM, it doesn't need the power to retain the data stored to it (as opposed to DRAM, which needs to get refreshed every 64ms / ~16 times every second), resulting in efficient idling. Modern CPUs are being designed as SoCs, with most CPU components fabbed onto the same die, of which these caches occupy a significant real estate. So, a larger size Cache comes at the cost of space on the die that the core components of the CPU could instead use.</p>
+
+                <figure>
+                    <img src="images/soc-die-photo.png" alt="SoC die photo showing cache areas occupying significant space on the chip" loading="lazy">
+                    <figcaption>An image showing an old SoC &mdash; observe the space on die that the Caches occupy on the chip (Courtesy: medium.com)</figcaption>
+                </figure>
+
+                <p>This leaves the SoC makers with the only way to maximise the cache size on a processor being the use of advanced Fabrication technologies, design research, and using the least nanometer process of die printing (example: 5nM printing). As you might have realised already, all these are expensive for the CPU maker, so they innovate to ensure the Cache available on the SoC is utilised to its fullest extent. They optimise the prediction algorithm to ensure the most Cache hit, which means the CPU can find the data it needs in the Cache itself before reaching out to the Primary memory.</p>
+
+                <figure>
+                    <img src="images/hwinfo-cache.png" alt="HwInfo screenshot showing cache layout of Intel i5-9300H processor with 256KB L1, 1MB L2, and 8MB L3" loading="lazy">
+                    <figcaption>The cache layout of a i5-9300H processor captured on HwInfo &mdash; Observe the 256KB of L1, 1MB of L2 and 8MB of L3 Caches</figcaption>
+                </figure>
+
+                <p>In the above screenshot you can observe the Cache layout on a i5-9300H. It's a quad-core processor hyperthreading to achieve 8 threads. Although the programs treat the threads as 8 processing nodes, the SoC is just 4 cores each acting as 2 cores, doing thread operations alternatively emulating a farce of 8 cores. Although this wouldn't make the chipset Octacore, Hyperthreading does result in performance boost as it utilises the idle time the CPU Core might have between I/O operations or "cache misses".</p>
+
+                <p>So, this processor has 4 L1 caches of 64KB and 4 L2 Caches of 256KB for the corresponding 4 cores of the chipset. An L3 Cache of 8MB is shared by the 4 cores.</p>
+
+                <h2 id="dining-table-analogy">The Dining Table Analogy</h2>
+
+                <p>All of this gets really complicated really quick, so I suggest you my "Dining table analogy."</p>
+
+                <figure>
+                    <img src="images/dining-table-analogy.png" alt="DALL-E illustration of a person dining at a table, representing the CPU cache analogy" loading="lazy">
+                    <figcaption>A representation of the analogy (the butler is bringing rest of the food, so he's out of the frame) (Courtesy: DALL-E)</figcaption>
+                </figure>
+
+                <p>Here I like to visualize data handling in a computer as a person having a meal, where the person's stomach is the CPU trying to feed on as much data as possible with its insatiable thirst. The diner eats the food on the table one scoopful at a time.</p>
+
+                <ul>
+                    <li><strong>The kitchen</strong> is the Hard disk where all the data is stored, although its design (SSD v/s HDD) and its tidiness (read as Disk fragmentation) play a crucial part in determining its effectiveness and efficiency.</li>
+                    <li><strong>A tireless butler</strong> stays by the table, ready to serve food on the table into the Plate for the Diner to consume next. He's the CPU's control unit.</li>
+                    <li><strong>The table</strong> is Primary memory / RAM on the system.</li>
+                    <li><strong>The Plate</strong> the Diner is served on is the Level-2 (L2) cache.</li>
+                    <li><strong>The Diner's Head</strong> is the Level-1 (L1) Cache. Level-1 Cache comprises 2 parts: the data cache and the instruction cache.</li>
+                    <li><strong>The Diner's visual recognition and understanding capability</strong> is the L1's instruction cache.</li>
+                    <li><strong>His mouth</strong> is the L1's data cache.</li>
+                </ul>
+
+                <p>So, now let's look back at our premise with the analogy and understand the events occurring here:</p>
+
+                <div class="analogy-step">
+                    <p>The food ready for consumption is brought to the table from the kitchen.</p>
+                    <p class="real">(Data related to the program/task is loaded into the RAM from the HDD)</p>
+                </div>
+
+                <div class="analogy-step">
+                    <p>The Butler serves the food onto the Plate ensuring all the items and dips as required by the diner are available on the plate itself.</p>
+                    <p class="real">(Memory controller adds required data to the L2 Cache, trying to maximise "Cache hit")</p>
+                </div>
+
+                <div class="analogy-step">
+                    <p>The Plate has food ready for consumption by the Diner.</p>
+                    <p class="real">(L2 Cache is cached up for the eminent program execution)</p>
+                </div>
+
+                <div class="analogy-step">
+                    <p>Diner recognises the type of food and takes the food bites.</p>
+                    <p class="real">(L1 cache's instruction cache and data cache are recognised, and data is filled accordingly)</p>
+                </div>
+
+                <div class="analogy-step">
+                    <p>He churns the food depending on the type of it, like whether it's a liquid or hard stuff, and swallows it for digestion.</p>
+                    <p class="real">(The CPU recognises the instructions of the code and handles the data in the Cache accordingly)</p>
+                </div>
+
+                <div class="analogy-step">
+                    <p>As soon as the mouth is empty, the Diner takes the next scoopful of food. As the food on the Plate starts to get empty, the Butler serves more food onto the Plate.</p>
+                    <p class="real">(As code in the L1 Cache gets processed, the next string of data and commands are loaded into their respective L1 caches. The control unit and memory controller decide what needs to be processed next and add them to the L2 Cache)</p>
+                </div>
+
+                <p>You can visualize the analogy for multi-core processors with the dining table filled with multiple diners (Processor cores). Here the Butler serves them the items from the table (RAM) simultaneously using a serving tray (L3 cache), ensuring every Diner's Plate is full.</p>
+
+                <p>This is a brief oversimplified overview that can help you get up to speed on how the magic of computing happens. This cycle happens billions of times a second, whether playing that casual game or reading this simple article. I consider this a pinnacle achievement of humanity that we've miniaturised this immaculate dance of this complexity scale into something that we don't even mind happening.</p>
+
+                <h2>Conclusion</h2>
+
+                <p>So, this is how the Cache on your system works and why it's available in the quantities it is. Going with the maximum Cache could look like the wisest choice. Still, a better choice would be going with the metrics that denote the Cache's performance and speed and benchmark scores of the specific SoC in the synthetic scenarios that emulate how you will use the device. What good is 32 Gigs of RAM on a Web surfer?</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Roko Games Private Limited. All rights reserved.</p>
+    </footer>
+
+    <script src="../../assets/js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to Consider While Buying a PSU | Roko Games</title>
+    <meta name="description" content="A comprehensive guide on what to consider while buying a Power Supply Unit (PSU) for your PC. Covers power rating, efficiency, modularity, connectors, cooling, and more.">
+    <meta name="keywords" content="PSU buying guide, power supply unit, SMPS, 80 Plus efficiency, modular PSU, PC building, ATX power supply">
+    <meta name="author" content="Roko Games">
+    <link rel="canonical" href="https://roko.co.in/blog/psu-buying-guide/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What to Consider While Buying a PSU">
+    <meta property="og:description" content="A comprehensive guide covering power rating, efficiency, modularity, connectors, cooling, and everything you need to know before buying a PSU for your PC.">
+    <meta property="og:url" content="https://roko.co.in/blog/psu-buying-guide/">
+    <meta property="og:site_name" content="Roko Games">
+    <meta property="og:image" content="https://roko.co.in/blog/psu-buying-guide/images/smps-schematic.png">
+    <meta property="article:published_time" content="2022-10-01T00:00:00+05:30">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What to Consider While Buying a PSU">
+    <meta name="twitter:description" content="A comprehensive guide covering power rating, efficiency, modularity, connectors, cooling, and everything you need to know before buying a PSU.">
+    <meta name="twitter:image" content="https://roko.co.in/blog/psu-buying-guide/images/smps-schematic.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#061021" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f5f8fb" media="(prefers-color-scheme: light)">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../assets/logo.png" type="image/png" sizes="48x48">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What to Consider While Buying a PSU",
+        "description": "A comprehensive guide on what to consider while buying a Power Supply Unit (PSU) for your PC.",
+        "image": "https://roko.co.in/blog/psu-buying-guide/images/smps-schematic.png",
+        "author": {
+            "@type": "Organization",
+            "name": "Roko Games"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Roko Games",
+            "url": "https://roko.co.in"
+        },
+        "datePublished": "2022-10-01",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://roko.co.in/blog/psu-buying-guide/"
+        }
+    }
+    </script>
+
+    <style>
+        /* ── Theme variables (matching site design system) ── */
+        :root {
+            --bg-start: #061021;
+            --bg-end: #06151f;
+            --card: #1a233265;
+            --accent: #7dd3fc;
+            --text: #e6eef6;
+            --muted: #94a3b8;
+            --glass: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.06);
+        }
+        html[data-theme="light"],
+        :root:has(#themeToggle[data-mode="light"]) {
+            --bg-start: #f5f8fb;
+            --bg-end: #fbfdff;
+            --card: #f8fbff;
+            --accent: #0369a1;
+            --text: #071128;
+            --muted: #475569;
+            --glass: rgba(0,0,0,0.04);
+            --border: rgba(0,0,0,0.08);
+        }
+        @media (prefers-color-scheme: light) {
+            :root:not([data-theme="dark"]) {
+                --bg-start: #f5f8fb;
+                --bg-end: #fbfdff;
+                --card: #f8fbff;
+                --accent: #0369a1;
+                --text: #071128;
+                --muted: #475569;
+                --glass: rgba(0,0,0,0.04);
+                --border: rgba(0,0,0,0.08);
+            }
+        }
+
+        /* ── Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            color: var(--text);
+            line-height: 1.75;
+            min-height: 100vh;
+        }
+
+        /* ── Header ── */
+        header {
+            position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(14px) saturate(120%);
+            -webkit-backdrop-filter: blur(14px) saturate(120%);
+            background: var(--glass);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .brand {
+            display: flex; align-items: center; gap: 0.5rem;
+            text-decoration: none; color: var(--accent);
+            font-weight: 700; font-size: 1.1rem;
+        }
+        .brand img { height: 28px; width: 28px; border-radius: 6px; }
+
+        /* ── Article container ── */
+        .article-container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* ── Article header ── */
+        .article-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+        }
+        .article-meta {
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        /* ── Content ── */
+        .article-body h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--accent);
+        }
+        .article-body h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+        }
+        .article-body p {
+            margin-bottom: 1.25rem;
+            color: var(--text);
+        }
+        .article-body ul, .article-body ol {
+            margin: 0 0 1.25rem 1.5rem;
+        }
+        .article-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── Figures ── */
+        figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        figcaption {
+            margin-top: 0.65rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* ── Tables ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        thead th {
+            background: var(--accent);
+            color: #000;
+            font-weight: 600;
+            padding: 0.65rem 0.85rem;
+            text-align: left;
+        }
+        tbody td {
+            padding: 0.55rem 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+        tbody tr:nth-child(even) {
+            background: var(--glass);
+        }
+
+        /* ── Card callout ── */
+        .callout {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            color: var(--muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Theme toggle ── */
+        #themeToggle {
+            background: none; border: 1px solid var(--border);
+            border-radius: 8px; padding: 6px 8px;
+            cursor: pointer; color: var(--muted);
+            display: flex; align-items: center; gap: 4px;
+            transition: border-color 0.2s;
+        }
+        #themeToggle:hover { border-color: var(--accent); }
+        #themeToggle svg { width: 18px; height: 18px; }
+        .theme-icon { display: none; }
+        .theme-icon.active { display: block; }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .article-header h1 { font-size: 1.5rem; }
+            .article-body h2 { font-size: 1.2rem; }
+            .article-container { padding: 1.25rem 1rem 3rem; }
+            table { font-size: 0.8rem; }
+            thead th, tbody td { padding: 0.45rem 0.55rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="brand" href="https://roko.co.in">
+            <img src="../../assets/images/logo%20-%20BGr.png" alt="Roko Games" width="28" height="28">
+            Roko Games
+        </a>
+        <div id="themeToggleContainer"></div>
+    </header>
+
+    <main class="article-container">
+        <article>
+            <div class="article-header">
+                <h1>What to Consider While Buying a PSU</h1>
+                <p class="article-meta">Published by Roko Games &middot; Technology</p>
+            </div>
+
+            <div class="article-body">
+                <p>Firstly, let's discuss why do we even need a PSU. A Power Supply Unit (PSU) is a PC component that provides the motherboard and the rest of the auxiliary components of the PC the clean DC power they need for their function. Below is a schematic of a SMPS power module.</p>
+
+                <figure>
+                    <img src="images/smps-schematic.png" alt="Schematic of a 200W PC ATX SMPS Power Supply" loading="lazy">
+                    <figcaption>A Schematic of SMPS power unit</figcaption>
+                </figure>
+
+                <p>There was a time when I saw a schematic just like the one above and thought, what's the need for such sophistication? Like why can't a series of a transformer (for voltage conversion), a full wave-rectifier (AC-DC conversion), and a bunch of capacitors (to smooth out the power) be enough for the task? (Well, that was the same adolescent me who earlier tried to charge up a lead-acid battery by using stepped-down AC power.)</p>
+
+                <p>As a matter of fact, a device does exist that did the DC conversion as I thought out earlier (kudos to me), but the reason why we instead use SMPS in PCs is this&mdash;</p>
+
+                <figure>
+                    <img src="images/lps-front.jpg" alt="Front view of a 200W Linear Power Supply PSU" loading="lazy">
+                    <img src="images/lps-top.jpg" alt="Top view of a 200W Linear Power Supply PSU showing internal components" loading="lazy" style="margin-top: 1rem;">
+                    <figcaption>Front and top views of a 200W LPS PSU &mdash; comprehend the dimensions based on the 3-pin connector</figcaption>
+                </figure>
+
+                <p>As you might have noticed already, a PSU of this kind is not something that can be placed in a mid-tower PC or in any PC, as a matter of fact. This type of PSU is called a Linear Power System (LPS). Though being this massive, they come with a bonus of being only ~40% efficient at converting the supplied AC power to DC, so the rest would be dissipated as heat. Wouldn't that be awesome? Trying to play Cyberpunk with RTX ON as the PSU works under full load, outputting a steady 600 watts while consuming an ungodly 1500 watts of power! Sweet! The CPU and GPU fans are screeching their lives out to prevent a Tj-max shutdown. Well, kudos to them. Let's see what they can throw at the PSU that would be rejecting 900 watts off of the input power, doubling as a room heater (thanks to the 40% efficiency).</p>
+
+                <p>Well, that's enough of joking around. Through this thought experiment, I want you to comprehend how the difference in a PSU's efficiency affects the working of the other components of the PC.</p>
+
+                <p>Thanks to their incredible complexity and engineering, these SMPS PSUs were capable of achieving efficiency figures north of 95% across a wide range of loads. Isn't that incredible?</p>
+
+                <h2>Things to Consider While Buying a PSU</h2>
+
+                <p>Whether you are building a new PC or your current PSU failed (never try to open a PSU, as the capacitors inside hold a significant charge even long after powering off). In the good old days, when you realised the SMPS was dead, you needed to check its wattage rating and buy a replacement with a wattage rating the same or more than the old unit. It used to be a similar story while building a PC. That's because the ATX standard got standardised all across PC platforms, so most components bearing the same standard are interchangeable, and a 200&ndash;300 watt PSU is adequate enough for the power requirements of those PCs. But gone are the days of that past. Here are the things we prefer you consider while building your PC or replacing your old one:</p>
+
+                <ul>
+                    <li>Max power consumption of the components of your build</li>
+                    <li>Efficiency rating</li>
+                    <li>Fan placement and cooling solution</li>
+                    <li>Number of hard disk power connectors</li>
+                    <li>Availability of Molex connector</li>
+                    <li>Type of CPU pin connector (motherboard specific)</li>
+                    <li>Voltage specific load capability</li>
+                    <li>Holdup time</li>
+                    <li>Modularity</li>
+                    <li>Dimensions and possible installation configurations</li>
+                    <li>PCI-e pins availability</li>
+                    <li>Build quality, manufacturer reputation and product reviews</li>
+                </ul>
+
+                <p>These were the criteria I suggest you check with your requirements, keeping the scope of futureproofing in mind. PSU is something we don't get to change/upgrade often, so you should buy the best fit for you right off the bat. Let's now review each of the criteria.</p>
+
+                <h2>Power Rating</h2>
+
+                <p>Calculate the power requirement of your build by adding up the TDPs of your CPU, GPU, Motherboard, RAM sticks, HDDs, SSDs, and auxiliaries like case fans, RGB lighting, dedicated CPU cooler, and so on. You might not be able to find the wattages of most of these components, but don't worry. A simple web search can fetch the approximate max wattage of each part. Summing up the wattage, keep in mind that this is the max wattage that your PC needs during peak use. Add 10% to it. Let's say the number you got is 530, you'd most likely be fine going with a 500 Watt power supply. But, I'd strongly suggest you consider a 600-watt PSU as this overprovisioning would ensure the PSU wouldn't reach its hard limit even during peak PC usage, preventing stressing the PSU components to their thresholds and risk of a shutdown. Also, having a PSU rated more than your current requirement means you'd be free to upgrade and add new auxiliaries without worrying about power issues.</p>
+
+                <div class="callout">
+                    <strong>Remember:</strong> A 600-watt power supply can output 600 watts to the PC under full load. If it is 90% efficient, that means it'd consume 660 Watts of power from the socket.
+                </div>
+
+                <h2>Efficiency Rating</h2>
+
+                <figure>
+                    <img src="images/80plus-chart.jpg" alt="80 Plus efficiency certification chart showing Bronze, Silver, Gold, Platinum, and Titanium ratings" loading="lazy">
+                    <figcaption>The chart denoting the power efficiency of a PSU based on its 80 Plus type</figcaption>
+                </figure>
+
+                <p>While shopping for PSUs, you'd notice 80plus bronze, gold, titanium, etc. Please refer to the above chart. It denotes the level of Input to Output efficiency the PSUs of each rating achieve under different load conditions. An efficient PSU not only helps with lower power consumption but also means that much less energy is being lost out as heat. This means less heat rejected by the PSU and less thermal strain on the rest of the PC components. A PSU with a higher rating comes with an added perk that higher quality material was used in its construction, ensuring it is robust and long lasting.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>80 Plus Test Type</th>
+                                <th colspan="4">115V Internal Non-Redundant</th>
+                                <th colspan="4">230V EU Internal Non-Redundant</th>
+                            </tr>
+                            <tr>
+                                <th>% of Rated Load</th>
+                                <th>10%</th><th>20%</th><th>50%</th><th>100%</th>
+                                <th>10%</th><th>20%</th><th>50%</th><th>100%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>80 Plus</td><td></td><td>80%</td><td>80%</td><td>80%</td><td></td><td>82%</td><td>85%</td><td>82%</td></tr>
+                            <tr><td>80 Plus Bronze</td><td></td><td>82%</td><td>85%</td><td>82%</td><td></td><td>85%</td><td>88%</td><td>85%</td></tr>
+                            <tr><td>80 Plus Silver</td><td></td><td>85%</td><td>88%</td><td>85%</td><td></td><td>87%</td><td>90%</td><td>87%</td></tr>
+                            <tr><td>80 Plus Gold</td><td></td><td>87%</td><td>90%</td><td>87%</td><td></td><td>90%</td><td>92%</td><td>89%</td></tr>
+                            <tr><td>80 Plus Platinum</td><td></td><td>90%</td><td>92%</td><td>89%</td><td></td><td>92%</td><td>94%</td><td>90%</td></tr>
+                            <tr><td>80 Plus Titanium</td><td>90%</td><td>92%</td><td>94%</td><td>90%</td><td>90%</td><td>94%</td><td>96%</td><td>94%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Fan Placement and Cooling Performance</h2>
+
+                <figure>
+                    <img src="images/airflow-layout.jpg" alt="Diagram showing PC case airflow layout with CPU, GPU, and PSU positions" loading="lazy">
+                    <figcaption>Figure representing a type of airflow layout</figcaption>
+                </figure>
+
+                <p>The direction of airflow within the CPU tower is a vital thing to consider while building a PC. Whether you want a positive pressure system, negative pressure system, or a linear flow as depicted in the above schematics. Each flow type comes with its own pros and cons. But while deciding the flow design, consider the direction in which the PSU's fan would be blowing its air. Mostly these would be in-fans blowing air onto its circuitry, so be mindful while installing the unit that the PSU's fan is facing outside. If placed inwards, the PSU intake would be sucking in hot air inside the case. This would result in unnecessary thermal stressing of PSU components, affecting their lifespan.</p>
+
+                <p>Also, what needs to be considered is the type of cooling solution that the PSU employs. PSUs commonly use fans. It's commonly understood that PSUs with more fans or fans with larger diameters (for example, 120mm), more RPM would be able to deal with rejected heat effectively. Fan design too plays a crucial role in airflow rate.</p>
+
+                <h2>Hard Disk Power Supply</h2>
+
+                <figure>
+                    <img src="images/sata-connector.jpg" alt="SATA power connector close-up" loading="lazy">
+                    <figcaption>SATA power connector</figcaption>
+                </figure>
+
+                <p>Having more than one SATA power pin would be helpful. It'd come in handy whenever you add an additional Hard Disk without resorting to "splitters." Also, having extra power connectors helps with redundancy in case one fails.</p>
+
+                <h2>Molex Connectors</h2>
+
+                <figure>
+                    <img src="images/molex-connector.jpg" alt="Molex 4-pin power connector" loading="lazy">
+                    <figcaption>Molex type connector</figcaption>
+                </figure>
+
+                <p>These types of connectors are used for powering PATA HDDs, DVD drives, and floppy drives of the past. But nowadays, these are mainly used for powering peripherals like case fans, dedicated CPU coolers, RGB lighting, etc. As gaming PCs tend to have more peripherals nowadays, having multiple Molex connectors is a thing to look out for. Though these can be daisy-chained, look out for the power output the PSU is rated for at this voltage.</p>
+
+                <h2>2&times;4-Pin CPU Power Connector</h2>
+
+                <figure>
+                    <img src="images/cpu-power-connector.png" alt="EPS 4+4 pin CPU power connector" loading="lazy">
+                    <figcaption>EPS 4+4 pin powering the CPU</figcaption>
+                </figure>
+
+                <p>A 12-volt bus supplies the CPU unit with power. Actually, a whole bunch of electronics like VRMs, capacitors, and inductors refines the power even further before powering the CPU chipset.</p>
+
+                <p>Some motherboards use a single 4-pin connector to power this unit, while some motherboards need 2 of these connectors. So, it is better to ensure the PSU has a 4+4 Pin CPU connector.</p>
+
+                <h2>Voltage Specific Load Capacity</h2>
+
+                <figure>
+                    <img src="images/load-capacity-chart.jpg" alt="Load capacity chart of Ant VS600L PSU showing voltage and max current ratings" loading="lazy">
+                    <figcaption>Load capacity chart of Ant VS600L</figcaption>
+                </figure>
+
+                <p>Having a 600-watt PSU would not mean it can support any load. Look out for tables like the above representing the power output the PSU can provide across different voltages. Below is a chart that gives you an idea of what components of the PC use the specific voltage outputs of the PSU:</p>
+
+                <figure>
+                    <img src="images/voltage-purpose-table.png" alt="Table showing PSU voltage rails and their purposes in a PC" loading="lazy">
+                    <figcaption>Voltage rails and their purposes in a PC</figcaption>
+                </figure>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Voltage</th><th>Purpose</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>-12V</td><td>Used on some older types of serial port amplifier circuits. Generally unused on newer systems. Current is usually limited to 1A.</td></tr>
+                            <tr><td>-5V</td><td>Used on some early personal computers for floppy disk controllers and some ISA add-on cards. Generally unused on newer systems. Current is usually limited to 1A.</td></tr>
+                            <tr><td>0V</td><td>The zero volt ground (also called <em>common</em> or <em>earth</em>) and reference point for other system voltages.</td></tr>
+                            <tr><td>+3.3V</td><td>Used to supply power for the processor, some types of memory, some AGP video cards, and other digital circuits (most of these components required a +5V supply in older systems).</td></tr>
+                            <tr><td>+5V</td><td>Still used to supply the motherboard and some of the components on the motherboard. Note that there is also a 5V standby voltage present when the system is powered down which can be grounded (e.g. by the user pressing the power switch on the front of the case) to restore power to the system.</td></tr>
+                            <tr><td>+12V</td><td>Primarily used for devices such as disk drives and cooling fans which have motors of one sort or another. These devices have their own power connectors that come directly from the power supply unit.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Holdup Times</h2>
+
+                <p>The number denotes the time in ms (millisecond) that the PSU can bridge between power supply outages. Let me explain its importance. Sometimes the power supply out of the socket fluctuates due to sudden loads on the local grid. Even if the PC is on a UPS, the UPS takes a fraction of a second to come online. If the holdup capacity is too low, the PC turns off seemingly instantaneously due to a micro-power outage that we can't even perceive. Capacitance in the PSU is used to help achieve this capability.</p>
+
+                <h2>Modularity</h2>
+
+                <figure>
+                    <img src="images/modularity-comparison.jpg" alt="Comparison of Modular, Semi-Modular, and Non-Modular power supplies" loading="lazy">
+                    <figcaption>Modular (top-left), Semi-Modular (top-right), and Non-Modular (bottom) power supplies</figcaption>
+                </figure>
+
+                <p>A fully modular PSU implies that the PSU is a stand-alone unit where all the connectors can be connected or removed as per requirement. This type of PSU is favored for clean builds and for the relief that a damaged wire wouldn't deem the entire PSU useless.</p>
+
+                <p>Semi-Modular is similar, but here the motherboard connector is fixed. Although it might look like a compromise, I recommend this type of PSU. Although the PSUs are standardised, the same is not true for the motherboard connectors. Based on my experiences, at least for the time being, I suggest you use the motherboard connector that came with the respective PSU or of the same brand.</p>
+
+                <p>Non-Modular PSUs have all the connector wires attached to the PSU, requiring cable management to be performed to hide and manage the unused pins and wires.</p>
+
+                <h2>PCI-e Power Pins</h2>
+
+                <figure>
+                    <img src="images/pcie-connectors.jpg" alt="PCIe 8-pin and 6+2-pin power connectors for GPUs" loading="lazy">
+                    <figcaption>PCI-e connectors that are used to power GPUs</figcaption>
+                </figure>
+
+                <p>As the GPU kept getting more powerful, so did grow their thirst for power. Typically the PCI-e port on the motherboard was used to power them, but as the processing power of GPUs kept on rising, auxiliary power pins were employed to supply them with the required power. This is done by a 6-pin connector capable of providing the GPU with a maximum of 75 watts of power. Newer GPUs require an 8-pin connector delivering 150 watts of power. This is done by a 6+2 connector. With what we witnessed in RTX 40 series, we need not be surprised if upcoming GPUs demand even more power. So, if you are a gamer or a person whose workflow depends heavily on graphic-intensive tasks, it is better to opt for a PSU that has more of these pins.</p>
+
+                <h2>Product Quality and Manufacturer's Reputation</h2>
+
+                <p>Lastly, I strongly suggest you refer to the customer and expert reviews on the PSU before purchasing based on its specs. Look for connector cable issues, cable quality, pin quality, etc. PSU is a long-time purchase as most of them last for nearly a decade, so choosing the right one is paramount instead of just going with the numbers on spec sheets. A poorly designed PSU from a shady manufacturer might not only fail early but also risk damaging the rest of the PC components.</p>
+
+                <p>I hope I covered most of the topics you might need to know before buying a PSU for your PC.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Roko Games Private Limited. All rights reserved.</p>
+    </footer>
+
+    <script src="../../assets/js/theme.js"></script>
+</body>
+</html>

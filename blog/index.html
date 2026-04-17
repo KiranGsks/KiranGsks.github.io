@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roko Games Blog | Engineering Notes & Guides</title>
+  <meta name="description" content="Roko Games blog: practical hardware explainers and long-form engineering articles.">
+  <link rel="canonical" href="https://roko.co.in/blog/">
+
+  <meta property="og:title" content="Roko Games Blog | Engineering Notes & Guides">
+  <meta property="og:description" content="Practical hardware explainers and long-form engineering articles.">
+  <meta property="og:image" content="https://roko.co.in/assets/images/RetroTennis%20logo.png">
+  <meta property="og:url" content="https://roko.co.in/blog/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Roko Games Blog | Engineering Notes & Guides">
+  <meta name="twitter:description" content="Practical hardware explainers and long-form engineering articles.">
+
+  <meta name="theme-color" content="#061021" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f8fb" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="../assets/logo.png" type="image/png" sizes="48x48">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .blog-hero {
+      padding: 2.25rem 0 1.25rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .blog-card h3 {
+      margin: 0.25rem 0 0.5rem;
+      color: var(--accent);
+    }
+
+    .blog-card p {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(125, 211, 252, 0.2);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="brand">
+        <img src="../assets/images/logo - BGr.png" alt="Roko Games logo" class="brand-logo" width="28" height="28">
+        Roko Games
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <svg class="icon icon-system" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="7" y="8" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+        <svg class="icon icon-dark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="icon icon-light" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2v1.5M12 20.5V22M4.2 4.2l1.06 1.06M18.74 18.74l1.06 1.06M2 12h1.5M20.5 12H22M4.2 19.8l1.06-1.06M18.74 5.26l1.06-1.06" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Theme</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="blog-hero reveal">
+      <h1>Blog</h1>
+      <p class="lede">Technical notes, explainers, and practical hardware guidance.</p>
+    </section>
+
+    <section class="section reveal" style="margin-top: 1rem;">
+      <h2 class="section-heading">All Articles</h2>
+      <div class="blog-grid">
+        <article class="card blog-card">
+          <span class="tag">Hardware Guide</span>
+          <h3>What to Consider While Buying a PSU</h3>
+          <p>Power rating, 80 Plus efficiency, thermals, connectors, modularity, and quality checks before choosing a PSU.</p>
+          <div class="event-buttons">
+            <a href="/blog/psu-buying-guide/" class="btn">Read Article</a>
+          </div>
+        </article>
+
+        <article class="card blog-card">
+          <span class="tag">CPU Explainer</span>
+          <h3>What is CPU Cache? Why Does It Matter?</h3>
+          <p>L1/L2/L3 cache basics, SRAM vs DRAM, die layout, and an intuitive dining-table analogy for fast understanding.</p>
+          <div class="event-buttons">
+            <a href="/blog/cpu-cache-explained/" class="btn">Read Article</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; padding: 2rem 1rem;">
+      <p>&copy; 2026 Roko Games Private Limited. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacypolicy/">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme.js"></script>
+  <script>
+    (function () {
+      var reveals = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        reveals.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,35 +1,62 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
-import { AirSetupPlaceholderPage } from '../pages/AirSetupPlaceholderPage'
+import { Routes, Route } from 'react-router-dom'
 import { HomePage } from '../pages/HomePage'
-import { ExistingConfirmStep } from '../pages/existing-vehicle/ExistingConfirmStep'
-import { ExistingVehiclePage } from '../pages/existing-vehicle/ExistingVehiclePage'
-import { ModelSearchStep } from '../pages/existing-vehicle/ModelSearchStep'
-import { RegistrationSearchStep } from '../pages/existing-vehicle/RegistrationSearchStep'
-import { MakeStep } from '../pages/new-vehicle/MakeStep'
-import { ModelStep } from '../pages/new-vehicle/ModelStep'
-import { NewVehicleConfirmStep } from '../pages/new-vehicle/NewVehicleConfirmStep'
-import { NewVehiclePage } from '../pages/new-vehicle/NewVehiclePage'
-import { TrimStep } from '../pages/new-vehicle/TrimStep'
-import { YearStep } from '../pages/new-vehicle/YearStep'
+import { VehicleSelectPage } from '../pages/inspect/VehicleSelectPage'
+import { VehicleInfoPage } from '../pages/inspect/VehicleInfoPage'
+import { TrackSelectPage } from '../pages/inspect/TrackSelectPage'
+import { ChecklistPage } from '../pages/inspect/ChecklistPage'
+import { SettingsPage } from '../pages/SettingsPage'
+import { AuthPage } from '../pages/AuthPage'
+import { PricingPage } from '../pages/PricingPage'
+import { AccountPage } from '../pages/AccountPage'
 
 export function AppRoutes() {
   return (
     <Routes>
+      {/* Home */}
       <Route path="/" element={<HomePage />} />
-      <Route path="/new" element={<NewVehiclePage />}>
-        <Route index element={<Navigate to="year" replace />} />
-        <Route path="year" element={<YearStep />} />
-        <Route path="make" element={<MakeStep />} />
-        <Route path="model" element={<ModelStep />} />
-        <Route path="trim" element={<TrimStep />} />
-        <Route path="confirm" element={<NewVehicleConfirmStep />} />
-      </Route>
-      <Route path="/existing" element={<ExistingVehiclePage />} />
-      <Route path="/existing/model" element={<ModelSearchStep />} />
-      <Route path="/existing/registration" element={<RegistrationSearchStep />} />
-      <Route path="/existing/confirm" element={<ExistingConfirmStep />} />
-      <Route path="/air-setup" element={<AirSetupPlaceholderPage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+
+      {/* Auth & Account */}
+      <Route path="/auth" element={<AuthPage />} />
+      <Route path="/account" element={<AccountPage />} />
+      <Route path="/pricing" element={<PricingPage />} />
+
+      {/* Inspection flow */}
+      <Route path="/inspect/:type" element={<VehicleSelectPage />} />
+      <Route path="/inspect/vehicle-info" element={<VehicleInfoPage />} />
+      <Route path="/inspect/track" element={<TrackSelectPage />} />
+      <Route path="/inspect/checklist" element={<ChecklistPage />} />
+
+      {/* Settings */}
+      <Route path="/settings" element={<SettingsPage />} />
+
+      {/* Q&A placeholder */}
+      <Route path="/ask" element={<AskPlaceholder />} />
+
+      {/* Catch-all */}
+      <Route path="*" element={<HomePage />} />
     </Routes>
+  )
+}
+
+/** Placeholder for the Q&A feature */
+function AskPlaceholder() {
+  return (
+    <div className="page">
+      <div className="page__header">
+        <h2 className="page__title">💬 Ask about a vehicle</h2>
+        <p className="page__subtitle">
+          This feature is coming soon. You'll be able to ask any question about cars or bikes
+          and get AI-powered answers.
+        </p>
+      </div>
+      <div className="card">
+        <div className="card__title">Coming Soon</div>
+        <div className="card__description">
+          General vehicle Q&A will be available once the inspection flow is complete.
+          For now, use the inspection flow to get vehicle-specific checklists.
+        </div>
+      </div>
+      <a href="/" className="btn btn--secondary">← Back to home</a>
+    </div>
   )
 }

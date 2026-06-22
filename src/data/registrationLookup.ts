@@ -1,47 +1,71 @@
 import type { Vehicle } from '../types/vehicle'
 
-const MOCK_PLATES: Record<string, Vehicle> = {
-  ABC123: {
-    id: '2023-toyota-camry-se',
-    year: 2023,
-    make: 'Toyota',
-    model: 'Camry',
-    trim: 'SE',
-    registration: 'ABC123',
+/**
+ * Mock registration lookup for Indian vehicles.
+ * In production, this would call an RTO/Vahan API.
+ */
+
+const MOCK_REGISTRATIONS: Record<string, Vehicle> = {
+  'KA01AB1234': {
+    id: 'ka01ab1234-swift',
+    type: 'car',
+    year: 2019,
+    make: 'Maruti Suzuki',
+    model: 'Swift',
+    variant: 'ZXi',
+    fuelType: 'petrol',
+    transmission: 'manual',
+    registration: 'KA-01-AB-1234',
+    engineCC: 1197,
   },
-  XYZ789: {
-    id: '2024-ford-f150-xlt',
-    year: 2024,
-    make: 'Ford',
-    model: 'F150',
-    trim: 'XLT',
-    registration: 'XYZ789',
+  'MH02CD5678': {
+    id: 'mh02cd5678-creta',
+    type: 'car',
+    year: 2021,
+    make: 'Hyundai',
+    model: 'Creta',
+    variant: 'SX',
+    fuelType: 'petrol',
+    transmission: 'manual',
+    registration: 'MH-02-CD-5678',
+    engineCC: 1497,
   },
-  HONDA1: {
-    id: '2024-honda-civic-sport',
-    year: 2024,
-    make: 'Honda',
-    model: 'Civic',
-    trim: 'Sport',
-    registration: 'HONDA1',
+  'DL03EF9012': {
+    id: 'dl03ef9012-classic',
+    type: 'bike',
+    year: 2022,
+    make: 'Royal Enfield',
+    model: 'Classic 350',
+    variant: 'Halcyon',
+    fuelType: 'petrol',
+    transmission: 'manual',
+    registration: 'DL-03-EF-9012',
+    engineCC: 349,
   },
 }
 
-const LOOKUP_DELAY_MS = 400
-
-function normalizeRegistration(reg: string): string {
-  return reg.trim().toUpperCase().replace(/\s+/g, '')
+/** Normalize a registration string for lookup */
+function normalizeReg(reg: string): string {
+  return reg.replace(/[-\s]/g, '').toUpperCase()
 }
 
-export async function lookupByRegistration(
-  reg: string,
-): Promise<Vehicle | null> {
-  const key = normalizeRegistration(reg)
-  if (!key) return null
+/**
+ * Look up a vehicle by registration number.
+ * Returns null if not found. Simulates network delay.
+ */
+export async function lookupByRegistration(registration: string): Promise<Vehicle | null> {
+  // Simulate API delay
+  await new Promise((resolve) => setTimeout(resolve, 400))
 
-  await new Promise((resolve) => setTimeout(resolve, LOOKUP_DELAY_MS))
-
-  return MOCK_PLATES[key] ?? null
+  const normalized = normalizeReg(registration)
+  return MOCK_REGISTRATIONS[normalized] ?? null
 }
 
-export const SAMPLE_REGISTRATIONS = Object.keys(MOCK_PLATES)
+/** Get demo registration plates for testing */
+export function getDemoPlates(): { plate: string; vehicle: string }[] {
+  return [
+    { plate: 'KA-01-AB-1234', vehicle: '2019 Maruti Swift ZXi' },
+    { plate: 'MH-02-CD-5678', vehicle: '2021 Hyundai Creta SX' },
+    { plate: 'DL-03-EF-9012', vehicle: '2022 Royal Enfield Classic 350' },
+  ]
+}

@@ -1,0 +1,14 @@
+# Working documents (not for deployment)
+plans/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Roo AI config (local only)
+.roo/

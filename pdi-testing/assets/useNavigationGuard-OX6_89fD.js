@@ -1,0 +1,1 @@
+import{S as e,T as t,w as n}from"./index-Cm_qkIXP.js";var r=t(n(),1);function i(t,n=`/`){let i=e();(0,r.useEffect)(()=>{t&&i(n,{replace:!0})},[t,n,i])}export{i as t};

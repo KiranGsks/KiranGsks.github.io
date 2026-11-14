@@ -1,0 +1,1 @@
+var e=`unipdi_vehicle`;function t(t){sessionStorage.setItem(e,JSON.stringify(t))}function n(){let t=sessionStorage.getItem(e);if(t)try{return JSON.parse(t)}catch{}return null}export{t as n,n as t};

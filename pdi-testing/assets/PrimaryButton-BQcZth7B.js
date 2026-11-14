@@ -1,0 +1,1 @@
+import{y as e}from"./index-Cm_qkIXP.js";var t=e();function n({children:e,block:n=!0,className:r=``,...i}){return(0,t.jsx)(`button`,{type:`button`,className:[`btn`,`btn--primary`,n&&`btn--block`,r].filter(Boolean).join(` `),...i,children:e})}export{n as t};
